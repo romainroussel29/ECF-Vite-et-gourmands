@@ -1,0 +1,405 @@
+/* ==========================================================================
+   1. VARIABLES DE COULEURS OFFICIELLES (Figma)
+   ========================================================================== */
+:root {
+    --color-dark: #2F241C;       /* Marron foncé / Titres et boutons principaux */
+    --color-secondary: #7A6B5B;  /* Taupe / Textes secondaires */
+    --color-border: #D8C9B2;     /* Beige soutenu / Bordures et lignes */
+    --color-bg: #f7f3eb;         /* Beige clair / Fond global du site et du footer */
+    --color-white: #FFFFFF;      /* Blanc pur / Cartes d'avis */
+    --radius-main: 16px;         /* Arrondi des images et cartes */
+    --radius-btn: 24px;          /* Arrondi des boutons pilules */
+}
+
+/* ==========================================================================
+   2. STYLES GLOBAUX
+   ========================================================================== */
+body {
+    background-color: var(--color-bg);
+    color: var(--color-dark);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   3. HEADER PUBLIC (visitor-header.html)
+   ========================================================================== */
+#header-container {
+    background-color: var(--color-bg);
+}
+
+.public-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--color-dark);
+    font-weight: 700;
+}
+
+.logo-container .subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-dark);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   4. CONTENEUR DE LA PAGE PRINCIPALE (#main-page)
+   ========================================================================== */
+.home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Lignes de séparation entre les sections */
+.section-divider {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 60px 0;
+}
+
+/* ==========================================================================
+   5. SECTION HERO (Haut de page d'accueil)
+   ========================================================================== */
+.hero-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.tagline {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+    color: var(--color-dark);
+}
+
+.hero-content p {
+    color: var(--color-secondary);
+    font-size: 1rem;
+    margin-bottom: 28px;
+    max-width: 500px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+/* Boutons */
+.btn-primary {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: 12px 24px;
+    border-radius: var(--radius-btn);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-dark);
+    border: 1px solid var(--color-dark);
+    padding: 12px 24px;
+    border-radius: var(--radius-btn);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    opacity: 0.85;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-main);
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   6. SECTION PRESENTATION (Julie et José)
+   ========================================================================== */
+.about-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: var(--color-dark);
+}
+
+.about-grid {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: var(--radius-main);
+    object-fit: cover;
+}
+
+.about-text {
+    flex: 1.5;
+}
+
+.about-text > p {
+    color: var(--color-secondary);
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.feature-item h3 {
+    font-size: 0.95rem;
+    margin: 0 0 8px 0;
+    color: var(--color-dark);
+}
+
+.feature-item p {
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+    margin: 0;
+}
+
+/* ==========================================================================
+   7. SECTION AVIS / RETOURS CLIENTS
+   ========================================================================== */
+.testimonials-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+    color: var(--color-dark);
+}
+
+.testimonials-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.testimonial-card {
+    flex: 1;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-main);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-meta {
+    font-size: 0.65rem;
+    color: var(--color-secondary);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.testimonial-quote {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 0 0 16px 0;
+    color: var(--color-dark);
+}
+
+.testimonial-author {
+    font-size: 0.8rem;
+    color: var(--color-secondary);
+}
+
+/* ==========================================================================
+   8. BANNIÈRE CONTACT INTERMÉDIAIRE
+   ========================================================================== */
+.cta-banner {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    border-radius: var(--radius-main);
+    padding: 32px 40px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cta-text h3 {
+    margin: 0 0 6px 0;
+    font-size: 1.4rem;
+}
+
+.cta-text p {
+    margin: 0;
+    color: var(--color-border);
+    font-size: 0.9rem;
+}
+
+.btn-white {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    padding: 12px 24px;
+    border-radius: var(--radius-btn);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+}
+
+.btn-white:hover {
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   9. FOOTER GLOBAL (Fixe sur toutes les pages - 3 colonnes)
+   ========================================================================== */
+.site-footer {
+    background-color: #e8dccb;
+    border-top: 1px solid var(--color-border);
+    padding: 60px 20px 30px;
+    margin-top: 80px;
+    color: var(--color-dark);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-col h2, 
+.footer-col h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: var(--color-dark);
+}
+
+.footer-col p,
+.footer-col address {
+    font-style: normal;
+    color: var(--color-secondary);
+    font-size: 0.9rem;
+    margin: 0 0 15px 0;
+    line-height: 1.6;
+}
+
+.footer-link {
+    color: var(--color-dark);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.hours-list, 
+.useful-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hours-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+}
+
+.useful-links li {
+    margin-bottom: 10px;
+}
+
+.useful-links a {
+    color: var(--color-dark);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.useful-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-divider {
+    border: none;
+    border-top: 1px dashed var(--color-border);
+    margin: 40px auto 20px;
+    max-width: 1200px;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+}
