@@ -7,7 +7,7 @@ export const allRoutes = [
     new Route('/admin-header', 'header admin', '/pages/admin-header.html'),
     new Route ('/client-header', 'header client', '/pages/client-header.html'),
     new Route ('/employee-header', 'header employee', '/pages/employee-header.html'),
-    new Route ('/visitor-header', 'header visitor', '/pages/visitor-header.html')
+    new Route ('/public-header', 'header public', '/pages/public-header.html')
 ];
 
 export const websiteName = 'Vite et gourmands';

@@ -24,19 +24,20 @@ body {
 }
 
 /* ==========================================================================
-   3. HEADER PUBLIC (visitor-header.html)
+   3. HEADER
    ========================================================================== */
 #header-container {
     background-color: var(--color-bg);
 }
 
-.public-header {
+.header {
     max-width: 1200px;
     margin: 0 auto;
     padding: 30px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .logo-container h1 {
@@ -402,4 +403,118 @@ body {
     margin: 0 auto;
     font-size: 0.85rem;
     color: var(--color-secondary);
+}
+/* ==========================================================================
+   10. RESPONSIVE DESIGN (Tablettes & Mobiles)
+   ========================================================================== */
+
+/* Style du bouton burger (masqué par défaut sur grand écran) */
+.burger-menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   ÉCRANS MOBILES ET TABLETTES (Max 768px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+
+    /* --- 1. HEADER & MENU BURGER --- */
+    .public-header {
+        position: relative;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    .burger-menu {
+        display: block; /* Affiche le bouton burger sur mobile */
+    }
+
+    .nav-links {
+        display: none; /* Cache le menu sous forme de liste par défaut */
+        width: 100%;
+        flex-direction: column;
+        gap: 15px;
+        padding-top: 15px;
+        text-align: center;
+        border-top: 1px solid var(--color-border);
+        margin-top: 15px;
+    }
+
+    /* Classe activée par JavaScript pour ouvrir le menu */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* --- 2. CONTENEUR PRINCIPAL --- */
+    .home-container {
+        padding: 15px;
+    }
+
+    /* --- 3. SECTION HERO (Haut de page) --- */
+    .hero-block {
+        flex-direction: column; /* Empile le texte et l'image */
+        gap: 25px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column; /* Empile les 2 boutons "Découvrir" et "Contacter" */
+        width: 100%;
+    }
+
+    .hero-buttons a {
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* --- 4. SECTION PRÉSENTATION (Julie & José) --- */
+    .about-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr; /* Passe les 3 points forts en 1 seule colonne */
+        gap: 15px;
+    }
+
+    /* --- 5. SECTION AVIS / RETOURS CLIENTS --- */
+    .testimonials-grid {
+        flex-direction: column; /* Empile les cartes d'avis verticalement */
+        gap: 15px;
+    }
+
+    /* --- 6. BANNIÈRE CONTACT INTERMÉDIAIRE --- */
+    .cta-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 24px 20px;
+    }
+
+    .cta-banner .btn-white {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    /* --- 7. FOOTER GLOBAL --- */
+    .footer-container {
+        flex-direction: column; /* Empile les 3 colonnes du footer verticalement */
+        gap: 30px;
+    }
+
+    .footer-col {
+        width: 100%;
+    }
 }

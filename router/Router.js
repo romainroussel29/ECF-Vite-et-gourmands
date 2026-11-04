@@ -68,7 +68,7 @@ const loadHeader = async () => {
     // On récupère le rôle (ex: stocké lors de la connexion, par défaut 'visitor')
     const userRole = localStorage.getItem('userRole') || 'visitor'; 
     
-    let headerPath = '/pages/visitor-header.html'; // Par défaut
+    let headerPath = '/pages/public-header.html'; // Par défaut
     
     if (userRole === 'admin') {
         headerPath = '/pages/admin-header.html';
@@ -87,6 +87,26 @@ const loadHeader = async () => {
         console.error("Erreur lors du chargement du header", error);
     }
 };
+// Gestion du menu burger responsive
+document.addEventListener("click", (e) => {
+    const burgerToggle = document.getElementById("burger-toggle");
+    const navLinks = document.getElementById("nav-links");
 
+    // Si les éléments existent sur la page
+    if (burgerToggle && navLinks) {
+        // Si on clique sur le bouton burger
+        if (burgerToggle.contains(e.target)) {
+            navLinks.classList.toggle("active");
+        } 
+       // Si on clique sur un lien du menu (balise <a>), on ferme le menu
+        else if (navLinks.contains(e.target) && e.target.tagName === 'A') {
+            navLinks.classList.remove("active");
+        }
+        // Si on clique en dehors du menu, on le ferme
+        else if (!navLinks.contains(e.target)) {
+            navLinks.classList.remove("active");
+        }
+    }
+});
 LoadContentPage();
 loadHeader();
