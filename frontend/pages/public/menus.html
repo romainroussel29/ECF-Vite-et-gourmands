@@ -60,7 +60,7 @@
     </section>
 
     <div class="results-info">
-        <span id="results-count" aria-live="polite">4 menus correspondant aux filtres</span>
+        <span id="results-count"></span>
         <label class="sort-option">
             Tri :
             <select id="filter-sort">
@@ -72,88 +72,8 @@
         </label>
     </div>
 
-    <!-- LISTE DES MENUS (attributs data-* utilisés par les filtres) -->
-    <section class="menu-list" id="menu-list">
-        <article class="menu-card" data-name="Table de saison" data-theme="Classique" data-diet="Classique" data-price="320" data-min="10" data-order="1">
-            <div class="menu-card-img">
-                <img src="/frontend/images/table_saison.jpg" alt="Assiette du menu Table de saison">
-            </div>
-            <div class="menu-card-content">
-                <div class="tags">
-                    <span class="tag">Classique</span>
-                    <span class="tag">Régime classique</span>
-                </div>
-                <h3>Table de saison</h3>
-                <p class="menu-desc">Une cuisine de saison, entre recettes du terroir et desserts maison, pour vos repas partagés.</p>
-                <div class="menu-pricing">
-                    <strong>10 personnes minimum · 320 € TTC</strong>
-                    <p class="price-detail">Prix total pour 10 personnes, soit 32 €/pers.</p>
-                </div>
-                <p class="availability">5 commandes encore disponibles</p>
-                <a href="/menu-table-de-saison" class="btn-outline">Voir le détail &rarr;</a>
-            </div>
-        </article>
-
-        <article class="menu-card" data-name="Jardin végétal" data-theme="Pâques" data-diet="Vegan" data-price="256" data-min="8" data-order="2">
-            <div class="menu-card-img">
-                <img src="/frontend/images/jardin_vegetal.jpg" alt="Plats du menu Jardin végétal">
-            </div>
-            <div class="menu-card-content">
-                <div class="tags">
-                    <span class="tag">Pâques</span>
-                    <span class="tag">Vegan</span>
-                </div>
-                <h3>Jardin végétal</h3>
-                <p class="menu-desc">Des légumes printaniers, des céréales et des desserts fruités pour une table entièrement végétale.</p>
-                <div class="menu-pricing">
-                    <strong>8 personnes minimum · 256 € TTC</strong>
-                    <p class="price-detail">Prix total pour 8 personnes, soit 32 €/pers.</p>
-                </div>
-                <p class="availability">3 commandes encore disponibles</p>
-                <a href="/menu-jardin-vegetal" class="btn-outline">Voir le détail &rarr;</a>
-            </div>
-        </article>
-
-        <article class="menu-card" data-name="Réception conviviale" data-theme="Événement" data-diet="Végétarien" data-price="580" data-min="20" data-order="3">
-            <div class="menu-card-img">
-                <img src="/frontend/images/Reception_conviviale.png" alt="Buffet du menu Réception conviviale">
-            </div>
-            <div class="menu-card-content">
-                <div class="tags">
-                    <span class="tag">Événement</span>
-                    <span class="tag">Végétarien</span>
-                </div>
-                <h3>Réception conviviale</h3>
-                <p class="menu-desc">Un buffet généreux et entièrement végétarien, pensé pour les grandes tablées et les événements d'entreprise.</p>
-                <div class="menu-pricing">
-                    <strong>20 personnes minimum · 580 € TTC</strong>
-                    <p class="price-detail">Prix total pour 20 personnes, soit 29 €/pers.</p>
-                </div>
-                <p class="availability">6 commandes encore disponibles</p>
-                <a href="/menu-reception-conviviale" class="btn-outline">Voir le détail &rarr;</a>
-            </div>
-        </article>
-
-        <article class="menu-card" data-name="Festin de Noël" data-theme="Noël" data-diet="Classique" data-price="540" data-min="12" data-order="4">
-            <div class="menu-card-img">
-                <img src="/frontend/images/Festin_noel.png" alt="Table du menu Festin de Noël">
-            </div>
-            <div class="menu-card-content">
-                <div class="tags">
-                    <span class="tag">Noël</span>
-                    <span class="tag">Régime classique</span>
-                </div>
-                <h3>Festin de Noël</h3>
-                <p class="menu-desc">Un repas de fête traditionnel, du foie gras à la bûche, pour célébrer la fin d'année ensemble.</p>
-                <div class="menu-pricing">
-                    <strong>12 personnes minimum · 540 € TTC</strong>
-                    <p class="price-detail">Prix total pour 12 personnes, soit 45 €/pers.</p>
-                </div>
-                <p class="availability">2 commandes encore disponibles</p>
-                <a href="/menu-festin-de-noel" class="btn-outline">Voir le détail &rarr;</a>
-            </div>
-        </article>
-    </section>
+    <!-- LISTE DES MENUS (générée par menus.js à partir du catalogue) -->
+    <section class="menu-list" id="menu-list" aria-live="polite"></section>
 
     <!-- AUCUN RÉSULTAT -->
     <div id="menus-empty" class="menus-empty" hidden>

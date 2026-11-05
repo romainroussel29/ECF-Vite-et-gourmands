@@ -19,6 +19,46 @@
   const summaryEl = document.getElementById("filter-summary");
   const emptyEl = document.getElementById("menus-empty");
   const resetBtn = document.getElementById("filter-reset");
+
+  // Cartes générées à partir du catalogue (menus publiés et visibles)
+  const esc = VG.escapeHtml;
+  const menus = VG.publicMenus();
+  list.innerHTML = menus.map((m) => {
+    const cover = m.images[0];
+    const per = VG.euro(m.price / m.min).replace(",00", "");
+    const stock = m.stock > 0
+      ? `${m.stock} commande${m.stock > 1 ? "s" : ""} encore disponible${m.stock > 1 ? "s" : ""}`
+      : "Plus de commande disponible pour le moment";
+    return `
+      <article class="menu-card" data-name="${esc(m.name)}" data-theme="${esc(m.theme)}" data-diet="${esc(m.diet)}" data-price="${m.price}" data-min="${m.min}" data-order="${m.order}">
+        <div class="menu-card-img">
+          ${cover ? `<img src="/frontend/images/${esc(cover.file)}" alt="${esc(cover.alt)}">` : ""}
+        </div>
+        <div class="menu-card-content">
+          <div class="tags">
+            <span class="tag">${esc(m.theme)}</span>
+            <span class="tag">${m.diet === "Classique" ? "Régime classique" : esc(m.diet)}</span>
+          </div>
+          <h3>${esc(m.name)}</h3>
+          <p class="menu-desc">${esc(m.desc)}</p>
+          <div class="menu-pricing">
+            <strong>${m.min} personnes minimum · ${VG.euro(m.price).replace(",00", "")} TTC</strong>
+            <p class="price-detail">Prix total pour ${m.min} personnes, soit ${per}/pers.</p>
+          </div>
+          <p class="availability">${stock}</p>
+          <a href="/menu-${esc(m.slug)}" class="btn-outline">Voir le détail &rarr;</a>
+        </div>
+      </article>`;
+  }).join("");
+
+  // Thèmes et régimes ajoutés depuis le catalogue
+  const addOptions = (select, values) => {
+    const existing = Array.from(select.options).map((o) => o.value);
+    values.filter((v) => v && !existing.includes(v)).forEach((v) => select.add(new Option(v, v)));
+  };
+  addOptions(fields.theme, [...new Set(menus.map((m) => m.theme))]);
+  addOptions(fields.diet, [...new Set(menus.map((m) => m.diet))]);
+
   const cards = Array.from(list.querySelectorAll(".menu-card"));
 
   // Comparaison sans accents ni majuscules (« noel » trouve « Noël »)
