@@ -1,0 +1,99 @@
+<div id="page-admin-accounts" class="home-container">
+    <p class="breadcrumb">Mon espace / Comptes</p>
+
+    <section class="page-head">
+        <h2>Comptes employés</h2>
+        <p class="subtitle-desc">Créer un accès Employé et le désactiver au départ d'un collaborateur. Administration réservée à l'Administrateur.</p>
+    </section>
+
+    <div id="ac-flash"></div>
+
+    <section class="card">
+        <h3 id="ac-title">Comptes employés</h3>
+        <div class="form-grid-2">
+            <div class="form-group">
+                <label for="ac-search">Rechercher par e-mail ou nom</label>
+                <input type="search" id="ac-search" placeholder="Adresse mail ou nom" />
+            </div>
+            <div class="form-group">
+                <label for="ac-state">État du compte</label>
+                <select id="ac-state">
+                    <option value="">Actifs et inactifs</option>
+                    <option value="active">Actifs</option>
+                    <option value="inactive">Inactifs</option>
+                </select>
+            </div>
+        </div>
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead><tr><th>Identifiant · e-mail</th><th>Rôle</th><th>État</th><th>Actions</th></tr></thead>
+                <tbody id="ac-body"></tbody>
+            </table>
+        </div>
+        <p class="small muted">Un compte désactivé ne peut plus se connecter. Son historique d'actions reste attribué et consultable.</p>
+        <div id="ac-panel"></div>
+    </section>
+
+    <div class="grid-2">
+        <section class="card">
+            <h3>Ajouter un compte Employé</h3>
+            <p class="small muted">Les champs * sont obligatoires. Le rôle est imposé : Employé.</p>
+            <form id="ac-form" novalidate>
+                <div class="form-grid-2">
+                    <div class="form-group"><label for="ac-firstname">Prénom *</label><input type="text" id="ac-firstname" /></div>
+                    <div class="form-group"><label for="ac-lastname">Nom *</label><input type="text" id="ac-lastname" /></div>
+                </div>
+                <div class="form-group">
+                    <label for="ac-email">E-mail / identifiant *</label>
+                    <input type="email" id="ac-email" autocomplete="off" />
+                    <span class="field-hint">L'adresse mail est aussi l'identifiant de connexion.</span>
+                </div>
+                <div class="form-group">
+                    <label for="ac-password">Mot de passe initial *</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="ac-password" autocomplete="new-password" />
+                        <span class="toggle-pwd">Afficher</span>
+                    </div>
+                </div>
+                <div class="pwd-rules-box">
+                    <ul id="ac-rules">
+                        <li data-rule="length">10 caractères minimum</li>
+                        <li data-rule="case">Au moins une majuscule et une minuscule</li>
+                        <li data-rule="digit">Au moins un chiffre</li>
+                        <li data-rule="special">Au moins un caractère spécial</li>
+                    </ul>
+                </div>
+                <p><span class="badge">Rôle imposé : Employé</span></p>
+                <div class="notice"><p>Mot de passe à transmettre de vive voix. Aucun envoi du mot de passe par e-mail, aucune copie en clair dans le journal. Un mail de bienvenue sans mot de passe est envoyé à l'employé.</p></div>
+                <div class="notice danger" id="ac-error" role="alert" hidden></div>
+                <div class="btn-row">
+                    <button type="submit" class="btn-primary">Créer le compte Employé</button>
+                    <button type="reset" class="btn-secondary">Annuler</button>
+                </div>
+            </form>
+        </section>
+
+        <div>
+            <section class="card">
+                <h3>Administration hors application</h3>
+                <p><strong>Création de compte Administrateur impossible depuis l'application.</strong></p>
+                <p>Aucun bouton de création d'Administrateur ni de choix de rôle Administrateur. Un compte Employé ne peut pas être promu depuis cette interface.</p>
+            </section>
+            <section class="card">
+                <h3>Périmètre des accès</h3>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead><tr><th>Fonction</th><th>Employé</th><th>Administrateur</th></tr></thead>
+                        <tbody>
+                            <tr><td>Catalogue / Horaires</td><td>Autorisé</td><td>Autorisé</td></tr>
+                            <tr><td>Commandes / Avis</td><td>Autorisé</td><td>Autorisé</td></tr>
+                            <tr><td>Comptes employés</td><td>Interdit</td><td>Autorisé</td></tr>
+                            <tr><td>Statistiques</td><td>Interdit</td><td>Autorisé</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="small muted">Visiteurs et clients : aucun accès aux espaces internes.</p>
+            </section>
+        </div>
+    </div>
+</div>

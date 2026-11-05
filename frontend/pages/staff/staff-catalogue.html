@@ -1,0 +1,80 @@
+<div id="page-staff-catalogue" class="home-container">
+    <p class="breadcrumb">Mon espace / Catalogue</p>
+
+    <section class="page-head page-head-row">
+        <div>
+            <h2>Catalogue et horaires</h2>
+            <p class="subtitle-desc">Gérer les menus, les fiches plats partagées et les horaires publics.</p>
+        </div>
+        <a href="/staff-menu-edit" class="btn-primary">+ Nouveau menu</a>
+    </section>
+
+    <div id="cat-flash"></div>
+
+    <!-- MENUS -->
+    <section class="card">
+        <h3 id="cat-menus-title">Menus</h3>
+        <div class="form-grid-2">
+            <div class="form-group">
+                <label for="cat-menu-search">Rechercher un menu</label>
+                <input type="search" id="cat-menu-search" placeholder="Nom du menu" />
+            </div>
+            <div class="form-group">
+                <label for="cat-menu-status">État de publication</label>
+                <select id="cat-menu-status">
+                    <option value="">Tous les états</option>
+                    <option value="publie">Publié</option>
+                    <option value="brouillon">Brouillon</option>
+                    <option value="archive">Archivé</option>
+                </select>
+            </div>
+        </div>
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead><tr><th>Menu</th><th>Publication / minimum</th><th>Disponibilité</th><th>Actions</th></tr></thead>
+                <tbody id="cat-menus"></tbody>
+            </table>
+        </div>
+        <div id="cat-menu-confirm"></div>
+    </section>
+
+    <!-- BIBLIOTHÈQUE DE PLATS -->
+    <section class="card">
+        <div class="page-head-row">
+            <h3 id="cat-dishes-title">Bibliothèque de plats</h3>
+            <button type="button" class="btn-secondary" id="cat-dish-new">+ Créer un plat</button>
+        </div>
+        <div class="form-group">
+            <label for="cat-dish-search">Rechercher un plat</label>
+            <input type="search" id="cat-dish-search" placeholder="Nom du plat ou catégorie" />
+        </div>
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead><tr><th>Plat</th><th>Catégorie · allergènes</th><th>Utilisé dans</th><th>Actions</th></tr></thead>
+                <tbody id="cat-dishes"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <div id="cat-dish-panel"></div>
+
+    <!-- HORAIRES -->
+    <section class="card" id="horaires">
+        <h3>Horaires · éditeur des sept jours</h3>
+        <p class="small muted">Une ou plusieurs plages par jour. Les horaires enregistrés sont affichés dans le pied de page de tout le site.</p>
+        <form id="hours-form" novalidate>
+            <div id="hours-days"></div>
+            <div class="notice danger" id="hours-error" role="alert" hidden></div>
+            <div class="notice"><p>« Fermé » : aucune plage active pour le jour concerné. La fermeture doit être après l'ouverture (00:00 = minuit) et les plages ne doivent pas se chevaucher.</p></div>
+            <div class="btn-row">
+                <button type="submit" class="btn-primary">Enregistrer les horaires</button>
+                <button type="button" class="btn-secondary" id="hours-reset">Annuler les changements</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="card">
+        <h3>Aperçu du pied de page public</h3>
+        <ul class="hours-list" id="hours-preview"></ul>
+    </section>
+</div>
