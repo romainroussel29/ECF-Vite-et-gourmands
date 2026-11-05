@@ -1,0 +1,48 @@
+<div id="page-signin" class="home-container">
+    <p class="breadcrumb">Accueil / Connexion</p>
+    
+    <section class="auth-header">
+        <h2>Connexion</h2>
+        <p class="subtitle-desc">Connectez-vous pour retrouver votre espace de commande.</p>
+    </section>
+
+    <div class="auth-layout">
+        <!-- FORMULAIRE DE CONNEXION -->
+        <div class="auth-card">
+            <h3>Se connecter</h3>
+            <p class="auth-note">Les deux champs sont obligatoires. Votre adresse mail est votre identifiant.</p>
+            
+            <form id="signin-form">
+                <div class="form-group">
+                    <label>Adresse mail *</label>
+                    <input type="email" id="email-input" placeholder="vous@exemple.fr" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Mot de passe *</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password-input" placeholder="Saisir votre mot de passe" required />
+                        <span id="toggle-password" class="toggle-pwd">Afficher</span>
+                    </div>
+                </div>
+
+                <a href="/mot-de-passe-oublie" class="forgot-link">Mot de passe oublié ?</a>
+
+                <button type="submit" class="btn-primary btn-submit">Se connecter</button>
+            </form>
+
+            <hr class="auth-divider">
+
+            <div class="register-prompt">
+                <p>Vous n'avez pas encore de compte ?</p>
+                <a href="/signup" class="btn-secondary btn-register">Créer un compte</a>
+            </div>
+        </div>
+
+        <!-- ENCART LATÉRAL -->
+        <div class="auth-sidebar">
+            <a href="/menus" class="sidebar-link">Continuer à consulter nos menus</a>
+            <p class="sidebar-desc">Le catalogue et le détail des menus sont accessibles sans connexion. Seul l'accès à la commande nécessite un compte.</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div id="page-account" class="home-container">
+    <p class="breadcrumb">Accueil / Mon compte</p>
+    
+    <section class="auth-header">
+        <h2>Mon compte</h2>
+        <p class="subtitle-desc">Gérez vos informations personnelles et retrouvez l'historique de vos commandes.</p>
+    </section>
+
+    <div class="auth-layout">
+        <!-- BLOC INFORMATIONS DU PROFIL -->
+        <div class="auth-card">
+            <h3>Mes informations personnelles</h3>
+            <p class="auth-note">Mettez à jour vos coordonnées si nécessaire.</p>
+            
+            <form id="account-form">
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label>Nom</label>
+                        <input type="text" value="Dupont" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Prénom</label>
+                        <input type="text" value="Jean" required />
+                    </div>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label>GSM</label>
+                        <input type="tel" value="06 12 34 56 78" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Adresse mail</label>
+                        <input type="email" value="jean.dupont@exemple.fr" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Adresse postale</label>
+                    <input type="text" value="12 Rue Sainte-Catherine" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Complément d'adresse</label>
+                    <input type="text" value="Appartement 4B" />
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label>Code postal</label>
+                        <input type="text" value="33000" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Ville</label>
+                        <input type="text" value="Bordeaux" required />
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary btn-submit" style="margin-top: 15px;">Enregistrer les modifications</button>
+            </form>
+        </div>
+
+        <!-- ENCART LATÉRAL / ACTIONS RAPIDES -->
+        <div class="auth-sidebar">
+            <div class="account-menu-box" style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-main); padding: 25px;">
+                <h3 style="margin-top: 0; font-size: 1.2rem;">Actions rapides</h3>
+                <ul class="useful-links" style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
+                    <li><a href="/menus" class="footer-link">Commander un menu &rarr;</a></li>
+                    <li><a href="/historique-commandes" class="footer-link">Mes commandes en cours &rarr;</a></li>
+                    <li><a href="/home" class="footer-link" style="color: #b71c1c;">Se déconnecter &rarr;</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
