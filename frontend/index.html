@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vite et gourmands</title>
-    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/frontend/styles/base.css">
+<link rel="stylesheet" href="/frontend/styles/layout.css">
+<link rel="stylesheet" href="/frontend/styles/home.css">
+<link rel="stylesheet" href="/frontend/styles/menus.css">
+<link rel="stylesheet" href="/frontend/styles/auth.css">
 </head>
 <body>
     <!-- Header dynamique injecté par JavaScript -->
@@ -46,9 +50,9 @@
             <div class="footer-col">
                 <h3>Informations utiles</h3>
                 <ul class="useful-links">
-                    <li><a href="/mentions-legales" onclick="route(event)">Mentions légales &rarr;</a></li>
+                    <li><a href="/mentions" onclick="route(event)">Mentions légales &rarr;</a></li>
                     <li><a href="/cgv" onclick="route(event)">Conditions générales de vente (CGV) &rarr;</a></li>
-                    <li><a href="/confidentialite" onclick="route(event)">Confidentialité et données personnelles &rarr;</a></li>
+                    <li><a href="/cgv#article-12" onclick="route(event)">Confidentialité et données personnelles &rarr;</a></li>
                 </ul>
             </div>
         </div>
@@ -60,6 +64,6 @@
         </div>
     </footer>
 
-    <script type="module" src="/router/Router.js"></script>
+    <script type="module" src="router/Router.js"></script>
 </body>
 </html>
