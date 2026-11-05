@@ -1,6 +1,6 @@
 <div id="page-signup" class="home-container">
     <p class="breadcrumb">Accueil / Créer un compte</p>
-    
+
     <section class="auth-header">
         <h2>Créer un compte</h2>
         <p class="subtitle-desc">Renseignez vos coordonnées pour préparer votre commande.</p>
@@ -9,75 +9,77 @@
     <div class="auth-card signup-card">
         <h3>Vos informations</h3>
         <p class="auth-note">Les champs marqués d'un * sont obligatoires.</p>
-        
-        <form id="signup-form">
+
+        <div class="notice danger" id="signup-error" role="alert" hidden></div>
+
+        <form id="signup-form" novalidate>
             <div class="form-grid-2">
                 <div class="form-group">
-                    <label>Nom *</label>
-                    <input type="text" placeholder="Votre nom" required />
+                    <label for="su-lastname">Nom *</label>
+                    <input type="text" id="su-lastname" placeholder="Votre nom" autocomplete="family-name" required />
                 </div>
                 <div class="form-group">
-                    <label>Prénom *</label>
-                    <input type="text" placeholder="Votre prénom" required />
+                    <label for="su-firstname">Prénom *</label>
+                    <input type="text" id="su-firstname" placeholder="Votre prénom" autocomplete="given-name" required />
                 </div>
             </div>
 
             <div class="form-grid-2">
                 <div class="form-group">
-                    <label>GSM *</label>
-                    <input type="tel" placeholder="06 00 00 00 00" required />
+                    <label for="su-phone">GSM *</label>
+                    <input type="tel" id="su-phone" placeholder="06 00 00 00 00" autocomplete="tel" required />
                 </div>
                 <div class="form-group">
-                    <label>Adresse mail *</label>
-                    <input type="email" placeholder="vous@exemple.fr" required />
+                    <label for="su-email">Adresse mail *</label>
+                    <input type="email" id="su-email" placeholder="vous@exemple.fr" autocomplete="email" required />
                 </div>
             </div>
 
             <div class="form-group">
-                <label>Adresse postale — rue et numéro *</label>
-                <input type="text" placeholder="Numéro et nom de rue" required />
+                <label for="su-street">Adresse postale — rue et numéro *</label>
+                <input type="text" id="su-street" placeholder="Numéro et nom de rue" autocomplete="address-line1" required />
             </div>
 
             <div class="form-group">
-                <label>Complément d'adresse (facultatif)</label>
-                <input type="text" placeholder="Appartement, bâtiment..." />
+                <label for="su-extra">Complément d'adresse (facultatif)</label>
+                <input type="text" id="su-extra" placeholder="Appartement, bâtiment..." autocomplete="address-line2" />
             </div>
 
             <div class="form-grid-2">
                 <div class="form-group">
-                    <label>Code postal *</label>
-                    <input type="text" placeholder="Code postal" required />
+                    <label for="su-zip">Code postal *</label>
+                    <input type="text" id="su-zip" placeholder="Code postal" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}" required />
                 </div>
                 <div class="form-group">
-                    <label>Ville *</label>
-                    <input type="text" placeholder="Ville" required />
+                    <label for="su-city">Ville *</label>
+                    <input type="text" id="su-city" placeholder="Ville" autocomplete="address-level2" required />
                 </div>
             </div>
 
             <h3 class="section-sub-title">Votre mot de passe</h3>
-            
+
             <div class="form-group">
-                <label>Mot de passe *</label>
+                <label for="pwd-signup">Mot de passe *</label>
                 <div class="password-wrapper">
-                    <input type="password" id="pwd-signup" placeholder="Choisir un mot de passe" required />
+                    <input type="password" id="pwd-signup" placeholder="Choisir un mot de passe" autocomplete="new-password" required />
                     <span class="toggle-pwd">Afficher</span>
                 </div>
             </div>
 
             <div class="pwd-rules-box">
                 <p><strong>Votre mot de passe doit contenir :</strong></p>
-                <ul>
-                    <li>10 caractères minimum</li>
-                    <li>Au moins une majuscule et une minuscule</li>
-                    <li>Au moins un chiffre</li>
-                    <li>Au moins un caractère spécial (ex : !, ?, @)</li>
+                <ul id="signup-rules">
+                    <li data-rule="length">10 caractères minimum</li>
+                    <li data-rule="case">Au moins une majuscule et une minuscule</li>
+                    <li data-rule="digit">Au moins un chiffre</li>
+                    <li data-rule="special">Au moins un caractère spécial (ex : !, ?, @)</li>
                 </ul>
                 <p class="pwd-tip">Utilisez un mot de passe unique. Ne le partagez pas.</p>
             </div>
 
             <p class="privacy-note">
-                Vos coordonnées sont utilisées pour gérer votre compte et préparer vos commandes. Consultez les informations sur le traitement de vos données. 
-                <a href="/confidentialite" class="inline-link">Confidentialité et données personnelles</a>
+                Vos coordonnées sont utilisées pour gérer votre compte et préparer vos commandes. Consultez les informations sur le traitement de vos données.
+                <a href="/cgv#article-12" class="inline-link">Confidentialité et données personnelles</a>
             </p>
 
             <button type="submit" class="btn-primary btn-submit">Créer mon compte</button>
@@ -86,7 +88,7 @@
         <hr class="auth-divider">
 
         <div class="login-prompt">
-            <a href="/signin" class="login-link">Déjà un compte ? Se connecter</a>
+            <a href="/signin" class="login-link" id="signup-login-link">Déjà un compte ? Se connecter</a>
         </div>
     </div>
 </div>
