@@ -12,7 +12,7 @@ export const allRoutes = [
     new Route('/menu-reception-conviviale', 'Réception conviviale', '/frontend/pages/public/menus-detail/reception-conviviale.html', '/frontend/scripts/menu-detail.js'),
     new Route('/menu-festin-de-noel', 'Festin de Noël', '/frontend/pages/public/menus-detail/festin-de-noel.html', '/frontend/scripts/menu-detail.js'),
 
-    new Route('/contact', 'Contact', '/frontend/pages/public/contact.html'),
+    new Route('/contact', 'Contact', '/frontend/pages/public/contact.html', '/frontend/scripts/contact.js'),
 
     // --- Authentification et Compte ---
     new Route('/signin', 'Connexion', '/frontend/pages/auth/signin.html'),
@@ -20,7 +20,7 @@ export const allRoutes = [
     new Route('/forgot-password', 'Mot de passe oublié', '/frontend/pages/auth/forgot-password.html', '/frontend/scripts/forgot-password.js'),
     new Route('/reset-password', 'Nouveau mot de passe', '/frontend/pages/auth/reset-password.html', '/frontend/scripts/reset-password.js'),
     new Route('/account', 'Mon compte', '/frontend/pages/account/account.html'),
-    new Route('/commande', 'Ma commande', '/frontend/pages/account/order.html'),
+    new Route('/commande', 'Ma commande', '/frontend/pages/account/order.html', '/frontend/scripts/order.js'),
 
     // --- Pages légales ---
     new Route('/cgv', 'Conditions générales de vente', '/frontend/pages/public/cgv.html'),
