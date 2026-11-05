@@ -4,7 +4,14 @@ export const allRoutes = [
     // --- Pages principales ---
     new Route('/', 'Accueil', '/frontend/pages/public/home.html'),
     new Route('/home', 'Accueil', '/frontend/pages/public/home.html'),
-    new Route('/menus', 'Nos menus', '/frontend/pages/public/menus.html'),
+    new Route('/menus', 'Nos menus', '/frontend/pages/public/menus.html', '/frontend/scripts/menus.js'),
+
+    // --- Détail des menus ---
+    new Route('/menu-table-de-saison', 'Table de saison', '/frontend/pages/public/menus-detail/table-de-saison.html', '/frontend/scripts/menu-detail.js'),
+    new Route('/menu-jardin-vegetal', 'Jardin végétal', '/frontend/pages/public/menus-detail/jardin-vegetal.html', '/frontend/scripts/menu-detail.js'),
+    new Route('/menu-reception-conviviale', 'Réception conviviale', '/frontend/pages/public/menus-detail/reception-conviviale.html', '/frontend/scripts/menu-detail.js'),
+    new Route('/menu-festin-de-noel', 'Festin de Noël', '/frontend/pages/public/menus-detail/festin-de-noel.html', '/frontend/scripts/menu-detail.js'),
+
     new Route('/contact', 'Contact', '/frontend/pages/public/contact.html'),
 
     // --- Authentification et Compte ---
