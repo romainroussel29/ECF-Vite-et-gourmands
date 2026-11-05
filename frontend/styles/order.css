@@ -1,6 +1,6 @@
 /* ==========================================================================
    ESPACE DE COMMANDE
-   (réutilise .form-group, .form-grid-2, .dev-note-box de auth.css)
+   (réutilise .form-group et .form-grid-2 de auth.css)
    ========================================================================== */
 
 .order-container {
@@ -16,10 +16,6 @@
 .order-text {
     font-size: 0.95rem;
     margin: 0 0 15px 0;
-}
-
-.order-state-note {
-    margin: 0 0 25px 0;
 }
 
 /* ---------- Conditions du menu ---------- */

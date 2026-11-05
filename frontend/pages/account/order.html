@@ -6,13 +6,6 @@
         <p class="subtitle-desc">Retrouvez votre menu sélectionné et préparez les détails de votre prestation.</p>
     </section>
 
-    <!-- ÉTAT CONNECTÉ (maquette) -->
-    <div class="dev-note-box order-state-note">
-        <span class="dev-tag">État connecté représenté · Camille Martin</span>
-        Rôle : utilisateur. Après connexion ou inscription, le menu « Table de saison » et les 15 convives sont conservés.
-        Coordonnées et adresse ci-dessous : données d'exemple modifiables.
-    </div>
-
     <!-- CONDITIONS DU MENU -->
     <section class="order-conditions">
         <h3>Conditions du menu</h3>
@@ -108,8 +101,8 @@
 
             <div class="order-info-box">
                 <span class="order-info-title">Livraison</span>
-                Livraison hors Bordeaux : 5 € + 0,59 €/km. Exemple : 20 km parcourus = 5 € + 11,80 € = 16,80 €.
-                Livraison à Bordeaux supposée sans frais à confirmer.
+                Livraison offerte dans Bordeaux. Hors Bordeaux : 5 € + 0,59 € par kilomètre parcouru
+                (par exemple, 20 km : 5 € + 11,80 € = 16,80 €).
             </div>
         </section>
 
@@ -122,7 +115,7 @@
             <div class="form-group">
                 <label for="order-menu">Menu sélectionné</label>
                 <select id="order-menu">
-                    <option selected>Table de saison · prérempli</option>
+                    <option selected>Table de saison</option>
                     <option>Jardin végétal</option>
                     <option>Festin de Noël</option>
                     <option>Réception conviviale</option>
@@ -207,24 +200,21 @@
                     <div><dt>Livraison (20 km)</dt><dd>16,80 € TTC</dd></div>
                     <div class="summary-total"><dt>Total TTC</dt><dd>448,80 € TTC</dd></div>
                 </dl>
-                <p class="order-small summary-note">Exemple statique : remise 10 % sur le menu, livraison hors Bordeaux à Mérignac (20 km).</p>
+                <p class="order-small summary-note">Remise de 10 % sur le menu à partir de 5 convives au-delà du minimum. Livraison hors Bordeaux à Mérignac (20 km).</p>
             </div>
 
-            <button type="submit" class="btn-primary btn-submit order-submit">Valider ma commande</button>
+            <button type="submit" class="btn-primary btn-submit order-submit" id="order-submit">Valider ma commande</button>
 
-            <div class="order-summary order-confirmation">
-                <h3>État de confirmation</h3>
-                <p class="order-text">Cette section illustre l'état prévu après validation.</p>
+            <div class="order-summary order-confirmation" id="order-confirmation" hidden tabindex="-1">
+                <h3>Commande enregistrée</h3>
+                <p class="order-text">Merci, votre commande a bien été enregistrée. Un mail de confirmation vous a été envoyé.</p>
                 <dl class="summary-list">
                     <div><dt>Numéro de commande</dt><dd><strong>MB-1042</strong></dd></div>
                     <div><dt>Statut</dt><dd><strong>En attente</strong></dd></div>
                     <div><dt>Mail de confirmation</dt><dd><strong>Envoi automatique</strong></dd></div>
-                    <div><dt>Accès</dt><dd><strong>Mes commandes</strong></dd></div>
+                    <div><dt>Suivi</dt><dd><a href="/account" class="inline-link">Mes commandes &rarr;</a></dd></div>
                 </dl>
-                <p class="order-small summary-note">Cette maquette illustre le wireframe de confirmation, pas une commande réellement effectuée. Aucune intégration réelle, aucun paiement inventé.</p>
             </div>
         </section>
     </form>
-
-    <p class="order-small">Maquette statique : champs, choix et boutons illustrent la préparation prévue, sans enregistrement ni envoi de commande réel.</p>
 </div>

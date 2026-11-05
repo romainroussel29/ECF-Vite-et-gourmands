@@ -1,5 +1,5 @@
 // Mot de passe oublié : contrôle de l'adresse puis affichage de la confirmation.
-// Maquette front-end : aucun mail n'est envoyé.
+// L'envoi du mail de réinitialisation sera pris en charge par le back-end.
 (() => {
   const form = document.getElementById("forgot-form");
   if (!form) return;

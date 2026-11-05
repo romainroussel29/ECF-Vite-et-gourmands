@@ -1,5 +1,5 @@
 // Nouveau mot de passe : règles vérifiées pendant la saisie, puis confirmation.
-// Maquette front-end : aucun mot de passe n'est enregistré.
+// L'enregistrement du mot de passe sera pris en charge par le back-end.
 (() => {
   const form = document.getElementById("reset-form");
   if (!form) return;
