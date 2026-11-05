@@ -1,4 +1,4 @@
-import Route from "./route.js";
+import Route from "./Route.js";
 import { allRoutes, websiteName } from "./allRoutes.js";
 
 // Route de secours (404)
@@ -105,6 +105,10 @@ window.onpopstate = () => {
 // Compatibilité si certains liens utilisent encore onclick="route(event)"
 window.route = (event) => {
   event.preventDefault();
+  // Déconnexion : on oublie le rôle pour réafficher le header public
+  if (event.currentTarget.hasAttribute("data-logout")) {
+    localStorage.removeItem("userRole");
+  }
   navigate(event.currentTarget.getAttribute("href"));
 };
 
