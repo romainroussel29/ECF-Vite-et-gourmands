@@ -17,6 +17,8 @@ export const allRoutes = [
     // --- Authentification et Compte ---
     new Route('/signin', 'Connexion', '/frontend/pages/auth/signin.html'),
     new Route('/signup', 'Inscription', '/frontend/pages/auth/signup.html'),
+    new Route('/forgot-password', 'Mot de passe oublié', '/frontend/pages/auth/forgot-password.html', '/frontend/scripts/forgot-password.js'),
+    new Route('/reset-password', 'Nouveau mot de passe', '/frontend/pages/auth/reset-password.html', '/frontend/scripts/reset-password.js'),
     new Route('/account', 'Mon compte', '/frontend/pages/account/account.html'),
     new Route('/commande', 'Ma commande', '/frontend/pages/account/order.html'),
 

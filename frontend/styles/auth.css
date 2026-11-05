@@ -235,6 +235,52 @@
     color: var(--color-dark);
 }
 
+/* ---------- Mot de passe oublié / nouveau mot de passe ---------- */
+.field-error {
+    font-size: 0.8rem;
+    color: #a3361f;
+}
+
+.form-group input[aria-invalid="true"] {
+    border-color: #a3361f;
+}
+
+.auth-success h3 {
+    margin-top: 0;
+}
+
+.auth-success p,
+.auth-success li {
+    font-size: 0.95rem;
+}
+
+.auth-success ul {
+    padding-left: 20px;
+    margin: 0 0 25px 0;
+    color: var(--color-secondary);
+}
+
+.auth-success .btn-submit {
+    display: block;
+    margin-top: 20px;
+}
+
+.auth-demo-note {
+    margin: 20px 0 0 0;
+}
+
+/* Règle respectée : coche et texte foncé */
+.pwd-rules-box li.is-valid {
+    color: var(--color-dark);
+    list-style: none;
+    margin-left: -18px;
+}
+
+.pwd-rules-box li.is-valid::before {
+    content: "✓ ";
+    font-weight: 700;
+}
+
 /* ---------- Responsive (connexion, inscription, CGV, mentions) ---------- */
 @media screen and (max-width: 768px) {
     .auth-layout {
