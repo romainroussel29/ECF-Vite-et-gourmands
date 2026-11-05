@@ -1,0 +1,161 @@
+/* ==========================================================================
+   PAGE D'ACCUEIL : HERO, PRÉSENTATION, AVIS, BANNIÈRE CONTACT
+   ========================================================================== */
+
+/* ---------- Hero ---------- */
+.hero-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content, .hero-image, .about-image {
+    flex: 1;
+}
+
+.about-text {
+    flex: 1.5;
+}
+
+.tagline, .testimonial-meta {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+}
+
+.hero-content p, .about-text > p, .hero-content h1 + p {
+    color: var(--color-secondary);
+    font-size: 1rem;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.hero-image img, .about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-main);
+    object-fit: cover;
+}
+
+/* ---------- Présentation & features ---------- */
+.about-section h2, .testimonials-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.about-grid {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.feature-item h3 {
+    font-size: 0.95rem;
+    margin: 0 0 8px 0;
+}
+
+.feature-item p, .feature-item span {
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+    margin: 0;
+}
+
+/* ---------- Avis clients ---------- */
+.testimonials-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.testimonial-card {
+    flex: 1;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-main);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-quote {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 0 0 16px 0;
+}
+
+.testimonial-author {
+    font-size: 0.8rem;
+    color: var(--color-secondary);
+}
+
+/* ---------- Bannière contact ---------- */
+.cta-banner {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    border-radius: var(--radius-main);
+    padding: 32px 40px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cta-text h3 {
+    margin: 0 0 6px 0;
+    font-size: 1.4rem;
+}
+
+.cta-text p {
+    margin: 0;
+    color: var(--color-border);
+    font-size: 0.9rem;
+}
+
+/* ---------- Responsive ---------- */
+@media screen and (max-width: 768px) {
+    .hero-block, .about-grid, .testimonials-grid, .cta-banner {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons a, .cta-banner .btn-white {
+        width: 100%;
+        text-align: center;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-banner {
+        text-align: center;
+        padding: 24px 20px;
+    }
+}
