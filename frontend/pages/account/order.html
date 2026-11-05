@@ -1,0 +1,230 @@
+<div id="page-order" class="home-container order-container">
+    <p class="breadcrumb">Accueil / Mon compte / Ma commande</p>
+
+    <section class="auth-header">
+        <h2>Espace de commande</h2>
+        <p class="subtitle-desc">Retrouvez votre menu sélectionné et préparez les détails de votre prestation.</p>
+    </section>
+
+    <!-- ÉTAT CONNECTÉ (maquette) -->
+    <div class="dev-note-box order-state-note">
+        <span class="dev-tag">État connecté représenté · Camille Martin</span>
+        Rôle : utilisateur. Après connexion ou inscription, le menu « Table de saison » et les 15 convives sont conservés.
+        Coordonnées et adresse ci-dessous : données d'exemple modifiables.
+    </div>
+
+    <!-- CONDITIONS DU MENU -->
+    <section class="order-conditions">
+        <h3>Conditions du menu</h3>
+        <p class="order-conditions-lead">À prévoir au moins 7 jours avant la prestation.</p>
+        <ul>
+            <li>Conserver entre 0 et +4 °C.</li>
+            <li>Consommer dans les 24 h suivant la livraison.</li>
+            <li>Ne pas rompre la chaîne du froid.</li>
+        </ul>
+        <p class="order-small">Modalités de prestation et conditions d'annulation consultables dans les CGV.</p>
+        <a href="/cgv" class="inline-link">Consulter les CGV et l'annulation &rarr;</a>
+    </section>
+
+    <form id="order-form">
+        <!-- ÉTAPE 1 -->
+        <section class="order-step">
+            <h3>Étape 1 · Coordonnées et prestation</h3>
+            <p class="order-small">Les informations du compte sont préremplies. Adresse du compte et lieu de prestation peuvent être différents.</p>
+
+            <h4 class="order-sub-title">Coordonnées personnelles</h4>
+            <div class="form-grid-2">
+                <div class="form-group">
+                    <label for="order-lastname">Nom *</label>
+                    <input type="text" id="order-lastname" value="Martin" required />
+                    <span class="field-hint">Prérempli depuis le compte.</span>
+                </div>
+                <div class="form-group">
+                    <label for="order-firstname">Prénom *</label>
+                    <input type="text" id="order-firstname" value="Camille" required />
+                    <span class="field-hint">Prérempli depuis le compte.</span>
+                </div>
+            </div>
+            <div class="form-grid-2">
+                <div class="form-group">
+                    <label for="order-phone">GSM *</label>
+                    <input type="tel" id="order-phone" value="06 12 34 56 78" required />
+                    <span class="field-hint">Prérempli depuis le compte.</span>
+                </div>
+                <div class="form-group">
+                    <label for="order-email">Adresse mail *</label>
+                    <input type="email" id="order-email" value="camille.martin@example.com" required />
+                    <span class="field-hint">Prérempli depuis le compte.</span>
+                </div>
+            </div>
+
+            <h4 class="order-sub-title">Adresse du compte</h4>
+            <div class="form-group">
+                <label for="account-street">Adresse postale — rue et numéro *</label>
+                <input type="text" id="account-street" value="24 rue des Lilas" required />
+            </div>
+            <div class="form-grid-2">
+                <div class="form-group">
+                    <label for="account-zip">Code postal *</label>
+                    <input type="text" id="account-zip" value="33000" required />
+                </div>
+                <div class="form-group">
+                    <label for="account-city">Ville *</label>
+                    <input type="text" id="account-city" value="Bordeaux" required />
+                </div>
+            </div>
+
+            <h4 class="order-sub-title">Lieu de prestation</h4>
+            <div class="form-group">
+                <label for="delivery-street">Adresse de livraison — rue et numéro *</label>
+                <input type="text" id="delivery-street" value="18 avenue de la République" required />
+            </div>
+            <div class="form-grid-2">
+                <div class="form-group">
+                    <label for="delivery-zip">Code postal *</label>
+                    <input type="text" id="delivery-zip" value="33700" required />
+                </div>
+                <div class="form-group">
+                    <label for="delivery-city">Ville *</label>
+                    <input type="text" id="delivery-city" value="Mérignac" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="delivery-extra">Complément d'adresse (facultatif)</label>
+                <input type="text" id="delivery-extra" value="Bâtiment principal" />
+            </div>
+            <div class="form-grid-2">
+                <div class="form-group">
+                    <label for="delivery-date">Date de prestation *</label>
+                    <input type="date" id="delivery-date" value="2026-06-18" required />
+                    <span class="field-hint">Minimum 7 jours avant la prestation.</span>
+                </div>
+                <div class="form-group">
+                    <label for="delivery-time">Heure souhaitée *</label>
+                    <input type="time" id="delivery-time" value="12:30" required />
+                    <span class="field-hint">Créneau souhaité à confirmer.</span>
+                </div>
+            </div>
+
+            <div class="order-info-box">
+                <span class="order-info-title">Livraison</span>
+                Livraison hors Bordeaux : 5 € + 0,59 €/km. Exemple : 20 km parcourus = 5 € + 11,80 € = 16,80 €.
+                Livraison à Bordeaux supposée sans frais à confirmer.
+            </div>
+        </section>
+
+        <!-- ÉTAPE 2 -->
+        <section class="order-step">
+            <h3>Étape 2 · Menu choisi et nombre de personnes</h3>
+            <p class="order-small">Le menu peut être choisi ici ou être prérempli depuis le détail du menu.</p>
+
+            <h4 class="order-sub-title">Menu choisi</h4>
+            <div class="form-group">
+                <label for="order-menu">Menu sélectionné</label>
+                <select id="order-menu">
+                    <option selected>Table de saison · prérempli</option>
+                    <option>Jardin végétal</option>
+                    <option>Festin de Noël</option>
+                    <option>Réception conviviale</option>
+                </select>
+                <span class="field-hint">Minimum 10 personnes · 32 €/personne.</span>
+            </div>
+
+            <h4 class="order-sub-title">Nombre de personnes</h4>
+            <div class="form-group">
+                <label for="order-guests">Nombre de convives *</label>
+                <input type="number" id="order-guests" min="10" value="15" required />
+                <span class="field-hint">Minimum 10 personnes · 15 convives choisis.</span>
+            </div>
+
+            <h4 class="order-sub-title">Vos plats au choix</h4>
+            <p class="order-text">Choisissez une entrée, un plat et un dessert. Toutes les combinaisons proposées sont incluses dans le tarif du menu.</p>
+
+            <fieldset class="dish-group">
+                <legend>Entrée * · une option à choisir</legend>
+                <label class="dish-option">
+                    <input type="radio" name="starter" required />
+                    <span><span class="dish-name">Tarte fine tomate et chèvre</span><span class="dish-allergens">Allergènes : Gluten, lait</span></span>
+                </label>
+                <label class="dish-option">
+                    <input type="radio" name="starter" />
+                    <span><span class="dish-name">Salade de lentilles</span><span class="dish-allergens">Allergènes : Moutarde</span></span>
+                </label>
+            </fieldset>
+
+            <fieldset class="dish-group">
+                <legend>Plat * · une option à choisir</legend>
+                <label class="dish-option">
+                    <input type="radio" name="main" required />
+                    <span><span class="dish-name">Poulet rôti, jus aux herbes</span><span class="dish-allergens">Allergènes : Lait</span></span>
+                </label>
+                <label class="dish-option">
+                    <input type="radio" name="main" />
+                    <span><span class="dish-name">Filet de lieu au citron</span><span class="dish-allergens">Allergènes : Poisson, lait</span></span>
+                </label>
+            </fieldset>
+
+            <fieldset class="dish-group">
+                <legend>Dessert * · une option à choisir</legend>
+                <label class="dish-option">
+                    <input type="radio" name="dessert" required />
+                    <span><span class="dish-name">Tarte aux pommes</span><span class="dish-allergens">Allergènes : Gluten, œufs, lait</span></span>
+                </label>
+                <label class="dish-option">
+                    <input type="radio" name="dessert" />
+                    <span><span class="dish-name">Mousse au chocolat</span><span class="dish-allergens">Allergènes : Œufs, lait</span></span>
+                </label>
+            </fieldset>
+
+            <div class="order-info-box">
+                <span class="order-info-title">Allergènes</span>
+                En cas d'allergie, contactez l'équipe pour vérifier la composition et les éventuelles traces avant toute demande.
+            </div>
+            <div class="order-info-box">
+                <span class="order-info-title">Remise</span>
+                Remise 10 % sur le menu pour 15 convives (5 personnes de plus que le minimum). La livraison n'est pas concernée par cette remise.
+            </div>
+        </section>
+
+        <!-- ÉTAPE 3 -->
+        <section class="order-step">
+            <h3>Étape 3 · Récapitulatif et validation</h3>
+            <p class="order-small">Le calcul est automatique. Le minimum de 10 personnes est respecté.</p>
+
+            <div class="order-summary">
+                <h3>Récapitulatif</h3>
+                <dl class="summary-list">
+                    <div><dt>Menu</dt><dd>Table de saison</dd></div>
+                    <div><dt>Convives</dt><dd>15</dd></div>
+                    <div><dt>Date</dt><dd>18 / 06 / 2026</dd></div>
+                    <div><dt>Heure souhaitée</dt><dd>12:30</dd></div>
+                    <div><dt>Lieu</dt><dd>18 avenue de la République, 33700 Mérignac</dd></div>
+                </dl>
+                <dl class="summary-list summary-prices">
+                    <div><dt>Prix menu base (15 pers.)</dt><dd>480 € TTC</dd></div>
+                    <div><dt>Remise menu (10 %)</dt><dd>−48 €</dd></div>
+                    <div><dt>Sous-total menu</dt><dd>432 € TTC</dd></div>
+                    <div><dt>Livraison (20 km)</dt><dd>16,80 € TTC</dd></div>
+                    <div class="summary-total"><dt>Total TTC</dt><dd>448,80 € TTC</dd></div>
+                </dl>
+                <p class="order-small summary-note">Exemple statique : remise 10 % sur le menu, livraison hors Bordeaux à Mérignac (20 km).</p>
+            </div>
+
+            <button type="submit" class="btn-primary btn-submit order-submit">Valider ma commande</button>
+
+            <div class="order-summary order-confirmation">
+                <h3>État de confirmation</h3>
+                <p class="order-text">Cette section illustre l'état prévu après validation.</p>
+                <dl class="summary-list">
+                    <div><dt>Numéro de commande</dt><dd><strong>MB-1042</strong></dd></div>
+                    <div><dt>Statut</dt><dd><strong>En attente</strong></dd></div>
+                    <div><dt>Mail de confirmation</dt><dd><strong>Envoi automatique</strong></dd></div>
+                    <div><dt>Accès</dt><dd><strong>Mes commandes</strong></dd></div>
+                </dl>
+                <p class="order-small summary-note">Cette maquette illustre le wireframe de confirmation, pas une commande réellement effectuée. Aucune intégration réelle, aucun paiement inventé.</p>
+            </div>
+        </section>
+    </form>
+
+    <p class="order-small">Maquette statique : champs, choix et boutons illustrent la préparation prévue, sans enregistrement ni envoi de commande réel.</p>
+</div>

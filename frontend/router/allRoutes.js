@@ -11,6 +11,7 @@ export const allRoutes = [
     new Route('/signin', 'Connexion', '/frontend/pages/auth/signin.html'),
     new Route('/signup', 'Inscription', '/frontend/pages/auth/signup.html'),
     new Route('/account', 'Mon compte', '/frontend/pages/account/account.html'),
+    new Route('/commande', 'Ma commande', '/frontend/pages/account/order.html'),
 
     // --- Pages légales ---
     new Route('/cgv', 'Conditions générales de vente', '/frontend/pages/public/cgv.html'),
