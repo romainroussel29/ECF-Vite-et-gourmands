@@ -1,39 +1,51 @@
 import Route from './Route.js';
 
+// Rôles autorisés pour les pages réservées
+const CLIENT = ['client'];
+const STAFF = ['employee', 'admin'];
+const ADMIN = ['admin'];
+
+const page = (path) => `/frontend/pages/${path}`;
+const script = (name) => `/frontend/scripts/${name}.js`;
+
 export const allRoutes = [
-    // --- Pages principales ---
-    new Route('/', 'Accueil', '/frontend/pages/public/home.html'),
-    new Route('/home', 'Accueil', '/frontend/pages/public/home.html'),
-    new Route('/menus', 'Nos menus', '/frontend/pages/public/menus.html', '/frontend/scripts/menus.js'),
+    // --- Pages publiques ---
+    new Route('/', 'Accueil', page('public/home.html'), script('home')),
+    new Route('/home', 'Accueil', page('public/home.html'), script('home')),
+    new Route('/menus', 'Nos menus', page('public/menus.html'), script('menus')),
+    new Route('/menu-*', 'Détail du menu', page('public/menu-detail.html'), script('menu-detail')),
+    new Route('/contact', 'Contact', page('public/contact.html'), script('contact')),
 
-    // --- Détail des menus ---
-    new Route('/menu-table-de-saison', 'Table de saison', '/frontend/pages/public/menus-detail/table-de-saison.html', '/frontend/scripts/menu-detail.js'),
-    new Route('/menu-jardin-vegetal', 'Jardin végétal', '/frontend/pages/public/menus-detail/jardin-vegetal.html', '/frontend/scripts/menu-detail.js'),
-    new Route('/menu-reception-conviviale', 'Réception conviviale', '/frontend/pages/public/menus-detail/reception-conviviale.html', '/frontend/scripts/menu-detail.js'),
-    new Route('/menu-festin-de-noel', 'Festin de Noël', '/frontend/pages/public/menus-detail/festin-de-noel.html', '/frontend/scripts/menu-detail.js'),
+    // --- Authentification ---
+    new Route('/signin', 'Connexion', page('auth/signin.html'), script('signin')),
+    new Route('/signup', 'Inscription', page('auth/signup.html'), script('signup')),
+    new Route('/forgot-password', 'Mot de passe oublié', page('auth/forgot-password.html'), script('forgot-password')),
+    new Route('/reset-password', 'Nouveau mot de passe', page('auth/reset-password.html'), script('reset-password')),
 
-    new Route('/contact', 'Contact', '/frontend/pages/public/contact.html', '/frontend/scripts/contact.js'),
+    // --- Espace client ---
+    new Route('/account', 'Mes commandes', page('account/account.html'), script('account-orders'), CLIENT),
+    new Route('/account-info', 'Mes informations', page('account/account-info.html'), script('account-info'), CLIENT),
+    new Route('/account-order', 'Ma commande', page('account/account-order.html'), script('account-order'), CLIENT),
+    new Route('/account-order-edit', 'Modifier ma commande', page('account/account-order-edit.html'), script('account-order-edit'), CLIENT),
+    new Route('/commande', 'Passer une commande', page('account/order.html'), script('order'), CLIENT),
 
-    // --- Authentification et Compte ---
-    new Route('/signin', 'Connexion', '/frontend/pages/auth/signin.html'),
-    new Route('/signup', 'Inscription', '/frontend/pages/auth/signup.html'),
-    new Route('/forgot-password', 'Mot de passe oublié', '/frontend/pages/auth/forgot-password.html', '/frontend/scripts/forgot-password.js'),
-    new Route('/reset-password', 'Nouveau mot de passe', '/frontend/pages/auth/reset-password.html', '/frontend/scripts/reset-password.js'),
-    new Route('/account', 'Mon compte', '/frontend/pages/account/account.html'),
-    new Route('/commande', 'Ma commande', '/frontend/pages/account/order.html', '/frontend/scripts/order.js'),
+    // --- Espace équipe (Employé et Administrateur) ---
+    new Route('/staff-orders', 'Commandes', page('staff/staff-orders.html'), script('staff-orders'), STAFF),
+    new Route('/staff-order', 'Détail de la commande', page('staff/staff-order.html'), script('staff-order'), STAFF),
+    new Route('/staff-reviews', 'Modération des avis', page('staff/staff-reviews.html'), script('staff-reviews'), STAFF),
+    new Route('/staff-catalogue', 'Catalogue et horaires', page('staff/staff-catalogue.html'), script('staff-catalogue'), STAFF),
+    new Route('/staff-menu-edit', 'Gestion du catalogue', page('staff/staff-menu-edit.html'), script('staff-menu-edit'), STAFF),
+
+    // --- Administration (Administrateur uniquement) ---
+    new Route('/admin-accounts', 'Comptes employés', page('staff/admin-accounts.html'), script('admin-accounts'), ADMIN),
+    new Route('/admin-stats', 'Statistiques', page('staff/admin-stats.html'), script('admin-stats'), ADMIN),
 
     // --- Pages légales ---
-    new Route('/cgv', 'Conditions générales de vente', '/frontend/pages/public/cgv.html'),
-    new Route('/mentions', 'Mentions légales', '/frontend/pages/public/mentions.html'),
-
-    // --- Headers dynamiques ---
-    new Route('/admin-header', 'Header admin', '/frontend/components/admin-header.html'),
-    new Route('/client-header', 'Header client', '/frontend/components/client-header.html'),
-    new Route('/employee-header', 'Header employee', '/frontend/components/employee-header.html'),
-    new Route('/public-header', 'Header public', '/frontend/components/public-header.html'),
+    new Route('/cgv', 'Conditions générales de vente', page('public/cgv.html')),
+    new Route('/mentions', 'Mentions légales', page('public/mentions.html')),
 
     // --- Système ---
-    new Route('/404', 'Page introuvable', '/frontend/pages/public/404.html')
+    new Route('/404', 'Page introuvable', page('public/404.html')),
 ];
 
 export const websiteName = 'Vite et gourmands';
