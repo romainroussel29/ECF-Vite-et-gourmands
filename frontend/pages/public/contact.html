@@ -1,0 +1,173 @@
+<div id="page-contact" class="home-container">
+    <p class="breadcrumb">Accueil / Contact</p>
+    
+    <section class="auth-header">
+        <h2>Contacter Vite & Gourmands</h2>
+        <p class="subtitle-desc">Une question sur un menu ou votre prestation ? Écrivez directement à l'entreprise, sans créer de compte.</p>
+    </section>
+
+    <!-- Petit badge d'information -->
+    <div style="margin-bottom: 25px;">
+        <span style="background-color: var(--color-border); padding: 4px 12px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: var(--color-dark);">
+            Accès public - sans authentification
+        </span>
+    </div>
+
+    <div class="auth-layout">
+        <!-- COLONNE PRINCIPALE : FORMULAIRE & ÉTATS -->
+        <div class="auth-card" style="flex: 1.5;">
+            
+            <!-- ÉTAT 1 : FORMULAIRE INITIAL -->
+            <div id="form-state-initial">
+                <h3>Votre message</h3>
+                <p class="auth-note">Les trois champs marqués d'un * sont obligatoires.</p>
+                
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label>Titre *</label>
+                        <input type="text" id="contact-title" placeholder="" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description *</label>
+                        <textarea id="contact-desc" rows="5" placeholder="" required style="padding: 12px; border: 1px solid var(--color-border); border-radius: 6px; font-family: inherit; font-size: 0.95rem; background: #fff;"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>E-mail *</label>
+                        <input type="email" id="contact-email" placeholder="client@courriel.example" required />
+                    </div>
+
+                    <button type="submit" id="submit-contact-btn" class="btn-primary btn-submit">Envoyer à Vite & Gourmands</button>
+                </form>
+            </div>
+
+            <!-- ÉTAT 2 : BLOC ERREURS (Masqué par défaut) -->
+            <div id="form-state-error" style="display: none; border: 2px dashed #d9822b; padding: 20px; border-radius: var(--radius-main); background-color: #fff8f0; margin-top: 20px;">
+                <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #b76b1c; display: block; margin-bottom: 10px;">ÉTAT ALTERNATIF — ERREURS DU FORMULAIRE</span>
+                <h3 style="margin-top: 0; color: #b76b1c;">Erreurs du formulaire</h3>
+                <div style="background-color: #fae1cd; padding: 12px; font-size: 0.85rem; border-radius: 4px; margin-bottom: 15px;">
+                    Le message n'a pas été envoyé. Corrigez les trois champs indiqués ci-dessous. Le résumé d'erreurs doit diriger vers chaque champ ; l'erreur reste associée au champ concerné.
+                </div>
+                
+                <form id="error-form-demo">
+                    <div class="form-group">
+                        <label>Titre *</label>
+                        <input type="text" value="Non renseigné" style="border-color: #d9822b;" />
+                        <span style="font-size: 0.75rem; color: #b76b1c; margin-top: 4px;">Erreur — Saisissez un titre pour votre message.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description *</label>
+                        <textarea rows="3" style="border-color: #d9822b; padding: 12px; border-radius: 6px; width: 100%;">Non renseigné</textarea>
+                        <span style="font-size: 0.75rem; color: #b76b1c; margin-top: 4px;">Erreur — Décrivez votre demande.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>E-mail *</label>
+                        <input type="email" value="client@" style="border-color: #d9822b;" />
+                        <span style="font-size: 0.75rem; color: #b76b1c; margin-top: 4px;">Erreur — Saisissez une adresse valide, par exemple nom@domaine.example.</span>
+                    </div>
+
+                    <button type="button" id="simulate-retry-btn" class="btn-primary btn-submit">Envoyer à Vite & Gourmands</button>
+                </form>
+            </div>
+
+            <!-- ÉTAT 3 : BLOC SUCCÈS (Masqué par défaut) -->
+            <div id="form-state-success" style="display: none; border: 2px solid #2e7d32; padding: 25px; border-radius: var(--radius-main); background-color: #f1f8f2; text-align: center;">
+                <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #2e7d32; display: block; margin-bottom: 10px;">ÉTAT ALTERNATIF — SUCCÈS</span>
+                <h3 style="margin-top: 0; color: #2e7d32; font-size: 1.5rem;">Confirmation d'envoi</h3>
+                <p style="font-size: 0.95rem; color: var(--color-dark); margin-bottom: 25px;">
+                    Merci pour votre demande. Julie et José pourront vous répondre à l'adresse indiquée. Aucun compte n'est nécessaire.
+                </p>
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <a href="/" class="btn-secondary" style="border-color: var(--color-dark);">Retour à l'accueil</a>
+                    <button type="button" id="reset-contact-btn" class="btn-primary">Écrire un autre message</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- COLONNE LATÉRALE : INFORMATIONS -->
+        <div class="auth-sidebar" style="display: flex; flex-direction: column; gap: 25px;">
+            <div style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-main); padding: 25px;">
+                <h3 style="margin-top: 0; font-size: 1.2rem;">Julie et José, à votre écoute</h3>
+                <p style="font-size: 0.9rem; color: var(--color-secondary); line-height: 1.6;">
+                    Vite & Gourmands est une entreprise de deux personnes, Julie et José, installée à Bordeaux depuis 25 ans.
+                </p>
+                <p style="font-size: 0.9rem; color: var(--color-secondary); line-height: 1.6; margin-bottom: 0;">
+                    Précisez votre question et, si nécessaire, le numéro de votre commande. Le contact ne modifie ni n'annule une commande.
+                </p>
+            </div>
+
+            <div style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-main); padding: 25px;">
+                <h3 style="margin-top: 0; font-size: 1.2rem;">Confidentialité et traitement</h3>
+                <p style="font-size: 0.9rem; color: var(--color-secondary); line-height: 1.6;">
+                    Les informations saisies servent uniquement à traiter votre demande et à vous répondre. Destinataire prévu : Vite & Gourmands, Julie et José.
+                </p>
+                <p style="font-size: 0.9rem; color: var(--color-secondary); line-height: 1.6;">
+                    Évitez toute donnée sensible dans le message. Aucun consentement marketing n'est requis pour contacter l'entreprise.
+                </p>
+                <a href="/cgv" class="btn-secondary" style="display: inline-block; text-align: center; margin-top: 10px; font-size: 0.85rem; padding: 8px 16px;">Lire la confidentialité</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Logique interactive pour simuler les états (Erreurs / Succès)
+    const contactForm = document.getElementById('contact-form');
+    const stateInitial = document.getElementById('form-state-initial');
+    const stateError = document.getElementById('form-state-error');
+    const stateSuccess = document.getElementById('form-state-success');
+
+    contactForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('contact-email').value;
+        const title = document.getElementById('contact-title').value;
+
+        // Simulation : si l'e-mail contient "erreur", on affiche l'état d'erreur, sinon le succès
+        if (email.includes('error') || title === '') {
+            stateInitial.style.display = 'none';
+            stateError.style.display = 'block';
+            stateSuccess.style.display = 'none';
+        } else {
+            stateInitial.style.display = 'none';
+            stateError.style.display = 'none';
+            stateSuccess.style.display = 'block';
+        }
+    });
+
+    // Bouton pour réinitialiser ou simuler le retour
+    document.getElementById('reset-contact-btn')?.addEventListener('click', () => {
+        stateInitial.style.display = 'block';
+        stateError.style.display = 'none';
+        stateSuccess.style.display = 'none';
+        contactForm.reset();
+    });
+
+    document.getElementById('simulate-retry-btn')?.addEventListener('click', () => {
+        stateInitial.style.display = 'block';
+        stateError.style.display = 'none';
+    });
+    document.getElementById('submit-contact-btn')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('contact-email').value;
+    const title = document.getElementById('contact-title').value;
+
+    const stateInitial = document.getElementById('form-state-initial');
+    const stateError = document.getElementById('form-state-error');
+    const stateSuccess = document.getElementById('form-state-success');
+
+    // Simulation : si le titre est vide ou l'email contient "erreur", on affiche l'erreur
+    if (title.trim() === '' || email.includes('error')) {
+        stateInitial.style.display = 'none';
+        stateError.style.display = 'block';
+        stateSuccess.style.display = 'none';
+    } else {
+        stateInitial.style.display = 'none';
+        stateError.style.display = 'none';
+        stateSuccess.style.display = 'block';
+    }
+});
+</script>

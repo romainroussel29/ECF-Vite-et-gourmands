@@ -1,0 +1,114 @@
+<div id="page-menus" class="home-container">
+    <p class="breadcrumb">Accueil / Nos menus</p>
+    
+    <section class="menus-header">
+        <h2>Tous nos menus</h2>
+        <p class="subtitle-desc">Pour un repas d'équipe, une réception ou une fête familiale : trouvez le menu adapté à vos convives.</p>
+    </section>
+
+    <!-- SECTION DES FILTRES -->
+    <section class="filters-section">
+        <div class="filter-grid">
+            <div class="filter-item">
+                <label>Rechercher</label>
+                <input type="text" placeholder="Jardin végétal..." />
+            </div>
+            <div class="filter-item">
+                <label>Thème</label>
+                <select>
+                    <option>Pâques</option>
+                    <option>Classique</option>
+                    <option>Événement</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label>Régime</label>
+                <select>
+                    <option>Vegan</option>
+                    <option>Végétarien</option>
+                    <option>Classique</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label>Prix maximum</label>
+                <input type="text" value="300 € TTC" />
+            </div>
+            <div class="filter-item">
+                <label>Fourchette de prix</label>
+                <input type="text" value="200 € TTC — 300 € TTC" />
+            </div>
+            <div class="filter-item">
+                <label>Nombre de personnes minimum</label>
+                <select>
+                    <option>8 personnes</option>
+                </select>
+            </div>
+        </div>
+        <p class="filter-note">
+            Les filtres s'actualisent automatiquement après chaque modification.<br>
+            État statique : les menus ci-dessous correspondent aux filtres renseignés sans rechargement de page.
+        </p>
+    </section>
+
+    <div class="results-info">
+        <span>1 menu correspondant aux filtres</span>
+        <span class="sort-option">Tri : pertinence &darr;</span>
+    </div>
+
+    <!-- CARTE DU MENU -->
+    <section class="menu-list">
+        <article class="menu-card">
+            <div class="menu-card-img">
+                <img src="/frontend/images/jardin_vegetal.jpg" alt="Jardin végétal">
+            </div>
+            <div class="menu-card-content">
+                <div class="tags">
+                    <span class="tag">Pâques</span>
+                    <span class="tag">Vegan</span>
+                </div>
+                <h3>Jardin végétal</h3>
+                <p class="menu-desc">Des légumes printaniers, des céréales et des desserts fruités pour une table entièrement végétale.</p>
+                
+                <div class="menu-pricing">
+                    <strong>8 personnes minimum - 256 € TTC</strong>
+                    <p class="price-detail">Prix total pour 8 personnes, soit 32 €/pers.</p>
+                </div>
+                
+                <p class="availability">3 commandes encore disponibles</p>
+                
+                <a href="/menu-detail" onclick="route(event)" class="btn-outline">Voir le détail &rarr;</a>
+            </div>
+        </article>
+        <!-- DEUXIÈME CARTE DE MENU : Table de saison -->
+    <article class="menu-card">
+        <div class="menu-card-img">
+            <img src="/frontend/images/table_saison.jpg" alt="Table de saison">
+        </div>
+        <div class="menu-card-content">
+            <div class="tags">
+                <span class="tag">Classique</span>
+                <span class="tag">Événement</span>
+            </div>
+            <h3>Table de saison</h3>
+            <p class="menu-desc">Un assortiment raffiné de plats aux saveurs de saison, idéaux pour vos repas de groupe.</p>
+            
+            <div class="menu-pricing">
+                <strong>6 personnes minimum - 210 € TTC</strong>
+                <p class="price-detail">Prix total pour 6 personnes, soit 35 €/pers.</p>
+            </div>
+            
+            <p class="availability">5 commandes encore disponibles</p>
+            
+            <a href="/menu-detail" class="btn-outline">Voir le détail &rarr;</a>
+        </div>
+    </article>
+    </section>
+
+    <p class="active-filter-summary">1 résultat : Pâques - Vegan - total TTC de 200 à 300 € - minimum requis inférieur ou égal à 8 personnes.</p>
+
+    <!-- BANNIÈRE CONTACT INTERMÉDIAIRE -->
+    <section class="cta-banner">
+        <p>Besoin de précisions sur un régime ou sur les conditions d'un menu ?</p>
+        <a href="/contact" onclick="route(event)" class="btn-white">Contacter l'équipe &rarr;</a>
+    </section>
+</div>
