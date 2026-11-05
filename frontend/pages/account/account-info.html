@@ -1,0 +1,89 @@
+<div id="page-account-info" class="home-container">
+    <p class="breadcrumb">Accueil / Mon compte / Mes informations</p>
+
+    <section class="page-head">
+        <h2>Mes informations personnelles</h2>
+        <p class="subtitle-desc">Consultez et modifiez les informations associées à votre compte.</p>
+    </section>
+
+    <div id="account-nav"></div>
+
+    <div class="layout-aside">
+        <form id="info-form" novalidate>
+            <div class="notice danger" id="info-error" role="alert" hidden></div>
+            <div class="notice success" id="info-success" role="status" hidden>
+                <p>Vos informations personnelles ont été mises à jour.</p>
+            </div>
+
+            <section class="card">
+                <h3>Mes coordonnées</h3>
+                <p class="small muted">Les champs marqués * sont obligatoires.</p>
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="i-lastname">Nom *</label>
+                        <input type="text" id="i-lastname" autocomplete="family-name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="i-firstname">Prénom *</label>
+                        <input type="text" id="i-firstname" autocomplete="given-name" required />
+                    </div>
+                </div>
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="i-phone">GSM *</label>
+                        <input type="tel" id="i-phone" autocomplete="tel" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="i-email">Adresse mail</label>
+                        <input type="email" id="i-email" readonly />
+                    </div>
+                </div>
+                <p class="small muted">Votre adresse mail est votre identifiant de connexion et sert aux échanges liés à vos commandes. Pour la changer, contactez l'équipe.</p>
+            </section>
+
+            <section class="card">
+                <h3>Mon adresse postale</h3>
+                <div class="form-group">
+                    <label for="i-street">Adresse postale — rue et numéro *</label>
+                    <input type="text" id="i-street" autocomplete="address-line1" required />
+                </div>
+                <div class="form-group">
+                    <label for="i-extra">Complément d'adresse (facultatif)</label>
+                    <input type="text" id="i-extra" autocomplete="address-line2" />
+                </div>
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="i-zip">Code postal *</label>
+                        <input type="text" id="i-zip" inputmode="numeric" pattern="[0-9]{5}" autocomplete="postal-code" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="i-city">Ville *</label>
+                        <input type="text" id="i-city" autocomplete="address-level2" required />
+                    </div>
+                </div>
+                <p class="small muted">L'adresse du compte peut être différente du lieu de prestation indiqué pour une commande.</p>
+            </section>
+
+            <button type="submit" class="btn-primary btn-submit">Enregistrer les modifications</button>
+        </form>
+
+        <aside>
+            <section class="card">
+                <h3>Mon compte</h3>
+                <p><strong id="i-fullname"></strong></p>
+                <p>Rôle : Utilisateur</p>
+                <p class="small muted" id="i-created"></p>
+            </section>
+            <section class="card">
+                <h3>Mes données personnelles</h3>
+                <p>Ces informations servent à gérer votre compte, préparer vos prestations et vous contacter au sujet de vos commandes.</p>
+                <a href="/cgv#article-12" class="inline-link">Confidentialité et données personnelles &rarr;</a>
+            </section>
+            <div class="notice">
+                <span class="notice-title">Commandes existantes</span>
+                <p>Modifier le profil ne modifie pas les informations déjà associées à une commande. Les commandes en attente se modifient depuis leur détail.</p>
+            </div>
+            <a href="/account" class="inline-link">Retrouver mes commandes &rarr;</a>
+        </aside>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<div id="page-account-order-edit" class="home-container">
+    <p class="breadcrumb">Accueil / Mon compte / Mes commandes</p>
+
+    <section class="page-head">
+        <h2 id="oe-title">Modifier ma commande</h2>
+        <p class="subtitle-desc">Ajustez les coordonnées, la prestation et les plats. Le menu choisi reste inchangé.</p>
+    </section>
+
+    <div id="account-nav"></div>
+    <div id="oe-content">
+        <p><a href="#" class="inline-link" id="oe-back">&larr; Abandonner et revenir au détail</a></p>
+        <p><span class="badge">En attente</span></p>
+        <div class="notice">
+            <span class="notice-title">Modification autorisée avant acceptation</span>
+            <p>Dès l'acceptation par l'équipe, la modification et l'annulation ne sont plus disponibles. Les champs marqués * sont obligatoires.</p>
+        </div>
+
+        <div class="layout-aside">
+            <form id="edit-form" novalidate>
+                <section class="card">
+                    <h3>Coordonnées personnelles</h3>
+                    <div class="form-grid-2">
+                        <div class="form-group"><label for="e-lastname">Nom *</label><input type="text" id="e-lastname" required /></div>
+                        <div class="form-group"><label for="e-firstname">Prénom *</label><input type="text" id="e-firstname" required /></div>
+                    </div>
+                    <div class="form-grid-2">
+                        <div class="form-group"><label for="e-phone">GSM *</label><input type="tel" id="e-phone" required /></div>
+                        <div class="form-group"><label for="e-email">Adresse mail</label><input type="email" id="e-email" readonly /></div>
+                    </div>
+                    <p class="small muted">Ces coordonnées concernent cette commande. Le profil se modifie depuis « Mes informations ».</p>
+                </section>
+
+                <section class="card">
+                    <h3>Lieu et date de prestation</h3>
+                    <div class="form-group"><label for="e-street">Adresse de livraison — rue et numéro *</label><input type="text" id="e-street" required /></div>
+                    <div class="form-group"><label for="e-extra">Complément d'adresse (facultatif)</label><input type="text" id="e-extra" /></div>
+                    <div class="form-grid-2">
+                        <div class="form-group"><label for="e-zip">Code postal *</label><input type="text" id="e-zip" inputmode="numeric" pattern="[0-9]{5}" required /></div>
+                        <div class="form-group"><label for="e-city">Ville *</label><input type="text" id="e-city" required /></div>
+                    </div>
+                    <div class="form-grid-2">
+                        <div class="form-group"><label for="e-date">Date de prestation *</label><input type="date" id="e-date" required /><span class="field-hint" id="e-date-hint"></span></div>
+                        <div class="form-group"><label for="e-time">Heure souhaitée *</label><input type="time" id="e-time" required /><span class="field-hint">Créneau souhaité, confirmé par l'équipe.</span></div>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h3>Menu et convives</h3>
+                    <div class="form-group">
+                        <label for="e-menu">Menu choisi — lecture seule</label>
+                        <input type="text" id="e-menu" readonly />
+                        <span class="field-hint">Le choix du menu ne peut pas être modifié.</span>
+                    </div>
+                    <p id="e-menu-info"></p>
+                    <div class="form-group">
+                        <label for="e-guests">Nombre de convives *</label>
+                        <input type="number" id="e-guests" step="1" required />
+                        <span class="field-hint" id="e-guests-hint"></span>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h3>Vos plats au choix</h3>
+                    <p>Une entrée, un plat et un dessert. Toutes les combinaisons proposées sont incluses dans le tarif du menu.</p>
+                    <div id="e-dishes"></div>
+                    <p class="small muted">En cas d'allergie, contactez l'équipe pour vérifier la composition et les éventuelles traces avant toute demande.</p>
+                </section>
+
+                <section class="card">
+                    <h3>Enregistrer la modification</h3>
+                    <p>Vérifiez les informations et le nouveau récapitulatif avant d'enregistrer.</p>
+                    <div class="notice danger" id="edit-error" role="alert" hidden></div>
+                    <div class="btn-row">
+                        <button type="submit" class="btn-primary">Enregistrer les modifications</button>
+                        <a href="#" class="btn-secondary" id="oe-cancel">Abandonner</a>
+                    </div>
+                </section>
+            </form>
+
+            <aside>
+                <section class="card">
+                    <h3>Prix de la commande</h3>
+                    <p class="small muted" id="e-price-sub"></p>
+                    <div id="e-prices"></div>
+                </section>
+                <section class="order-conditions" id="e-conditions"></section>
+            </aside>
+        </div>
+    </div>
+</div>

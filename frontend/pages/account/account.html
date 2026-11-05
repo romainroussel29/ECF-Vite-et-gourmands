@@ -1,75 +1,33 @@
 <div id="page-account" class="home-container">
-    <p class="breadcrumb">Accueil / Mon compte</p>
-    
-    <section class="auth-header">
-        <h2>Mon compte</h2>
-        <p class="subtitle-desc">Gérez vos informations personnelles et retrouvez l'historique de vos commandes.</p>
+    <p class="breadcrumb">Accueil / Mon compte / Mes commandes</p>
+
+    <section class="page-head">
+        <h2>Mes commandes</h2>
+        <p class="subtitle-desc">Retrouvez l'ensemble de vos commandes, leurs détails et leur état d'avancement.</p>
     </section>
 
-    <div class="auth-layout">
-        <!-- BLOC INFORMATIONS DU PROFIL -->
-        <div class="auth-card">
-            <h3>Mes informations personnelles</h3>
-            <p class="auth-note">Mettez à jour vos coordonnées si nécessaire.</p>
-            
-            <form id="account-form">
-                <div class="form-grid-2">
-                    <div class="form-group">
-                        <label>Nom</label>
-                        <input type="text" value="Dupont" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Prénom</label>
-                        <input type="text" value="Jean" required />
-                    </div>
-                </div>
+    <div id="account-nav"></div>
 
-                <div class="form-grid-2">
-                    <div class="form-group">
-                        <label>GSM</label>
-                        <input type="tel" value="06 12 34 56 78" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Adresse mail</label>
-                        <input type="email" value="jean.dupont@exemple.fr" required />
-                    </div>
-                </div>
+    <a href="/menus" class="btn-primary btn-submit">Passer une nouvelle commande</a>
+    <p class="small muted">La modification et l'annulation sont possibles uniquement avant l'acceptation par l'équipe.</p>
 
-                <div class="form-group">
-                    <label>Adresse postale</label>
-                    <input type="text" value="12 Rue Sainte-Catherine" required />
-                </div>
+    <div class="page-head-row">
+        <h3 class="card-title">Historique complet</h3>
+        <span class="small muted" id="orders-count"></span>
+    </div>
+    <p class="small muted">De la plus récente à la plus ancienne.</p>
 
-                <div class="form-group">
-                    <label>Complément d'adresse</label>
-                    <input type="text" value="Appartement 4B" />
-                </div>
+    <div class="table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr><th>Commande / menu</th><th>Prestation</th><th>Convives</th><th>Montant TTC</th><th>Statut</th><th>Accès</th></tr>
+            </thead>
+            <tbody id="orders-body"></tbody>
+        </table>
+    </div>
 
-                <div class="form-grid-2">
-                    <div class="form-group">
-                        <label>Code postal</label>
-                        <input type="text" value="33000" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Ville</label>
-                        <input type="text" value="Bordeaux" required />
-                    </div>
-                </div>
-
-                <button type="submit" class="btn-primary btn-submit" style="margin-top: 15px;">Enregistrer les modifications</button>
-            </form>
-        </div>
-
-        <!-- ENCART LATÉRAL / ACTIONS RAPIDES -->
-        <div class="auth-sidebar">
-            <div class="account-menu-box" style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-main); padding: 25px;">
-                <h3 style="margin-top: 0; font-size: 1.2rem;">Actions rapides</h3>
-                <ul class="useful-links" style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
-                    <li><a href="/menus" class="footer-link">Commander un menu &rarr;</a></li>
-                    <li><a href="/historique-commandes" class="footer-link">Mes commandes en cours &rarr;</a></li>
-                    <li><a href="/home" class="footer-link" style="color: #b71c1c;">Se déconnecter &rarr;</a></li>
-                </ul>
-            </div>
-        </div>
+    <div class="notice">
+        <span class="notice-title">Des accès adaptés au statut</span>
+        <p>En attente : détail, modification et annulation. Dès l'acceptation : suivi de la commande, modification et annulation indisponibles. Terminée : dépôt d'un avis lié à la commande, publié après validation par l'équipe.</p>
     </div>
 </div>
