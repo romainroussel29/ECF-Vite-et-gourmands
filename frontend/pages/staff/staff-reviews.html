@@ -1,0 +1,37 @@
+<div id="page-staff-reviews" class="home-container">
+    <p class="breadcrumb">Mon espace / Avis</p>
+
+    <section class="page-head">
+        <h2>Modération des avis</h2>
+        <p class="subtitle-desc">Examiner les retours associés à des commandes terminées avant toute publication sur l'accueil.</p>
+    </section>
+
+    <section class="card">
+        <h3>File de modération</h3>
+        <div class="chips" id="rv-tabs" role="group" aria-label="Statut des avis"></div>
+        <div class="form-grid-2">
+            <div class="form-group">
+                <label for="rv-search">Rechercher un client ou une commande</label>
+                <input type="search" id="rv-search" placeholder="Nom, e-mail ou numéro de commande" />
+            </div>
+            <div class="form-group">
+                <label for="rv-sort">Trier les avis</label>
+                <select id="rv-sort">
+                    <option value="asc">Date de dépôt · croissante</option>
+                    <option value="desc">Date de dépôt · décroissante</option>
+                    <option value="rating">Note · de la plus basse à la plus haute</option>
+                </select>
+            </div>
+        </div>
+        <p class="small muted" id="rv-info"></p>
+    </section>
+
+    <div id="rv-flash"></div>
+    <div class="grid-2" id="rv-list"></div>
+
+    <section class="card">
+        <h3>Aperçu de l'accueil · uniquement les avis validés</h3>
+        <div id="rv-preview"></div>
+        <p class="small muted">Les avis en attente et refusés n'apparaissent pas sur l'accueil.</p>
+    </section>
+</div>

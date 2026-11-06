@@ -1,0 +1,51 @@
+<div id="page-staff-orders" class="home-container">
+    <p class="breadcrumb">Mon espace / Commandes</p>
+
+    <section class="page-head">
+        <h2>Commandes</h2>
+        <p class="subtitle-desc">Rechercher par client ou par statut, puis ouvrir une commande pour consulter son suivi et ses actions tracées.</p>
+    </section>
+
+    <section class="card">
+        <h3>Filtrer les commandes</h3>
+        <form id="so-form" novalidate>
+            <p class="small"><strong>Critère de recherche</strong></p>
+            <div class="radio-row">
+                <label class="check-line"><input type="radio" name="so-mode" value="client" checked /> Par client</label>
+                <label class="check-line"><input type="radio" name="so-mode" value="status" /> Par statut</label>
+            </div>
+            <p class="small muted">Un seul critère actif à la fois : client ou statut.</p>
+
+            <div class="form-grid-2">
+                <div class="form-group">
+                    <label for="so-client">Nom ou e-mail du client</label>
+                    <input type="search" id="so-client" placeholder="Nom, partie du nom ou adresse mail" />
+                </div>
+                <div class="form-group">
+                    <label for="so-status">Statut</label>
+                    <select id="so-status" disabled>
+                        <option value="">Tous les statuts</option>
+                    </select>
+                </div>
+            </div>
+            <div class="btn-row">
+                <button type="submit" class="btn-primary">Rechercher</button>
+                <button type="button" class="btn-secondary" id="so-reset">Réinitialiser</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="card">
+        <h3 id="so-count">Résultats</h3>
+        <p id="so-active"></p>
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Numéro / menu</th><th>Client</th><th>Prestation</th><th>Total TTC</th><th>Statut / détail</th></tr>
+                </thead>
+                <tbody id="so-body"></tbody>
+            </table>
+        </div>
+        <p class="small muted">Chaque changement de statut est horodaté et rattaché à son auteur dans le détail de la commande.</p>
+    </section>
+</div>

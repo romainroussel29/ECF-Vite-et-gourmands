@@ -7,6 +7,22 @@
     margin-bottom: 20px;
 }
 
+.menus-header {
+    margin-bottom: 25px;
+}
+
+.menus-header h2 {
+    font-size: 1.8rem;
+    margin: 0 0 8px 0;
+}
+
+.subtitle-desc {
+    color: var(--color-secondary);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* ---------- Filtres ---------- */
 .filters-section {
     background-color: var(--color-bg);
     border: 1px solid var(--color-border);
@@ -33,27 +49,65 @@
     font-weight: 600;
 }
 
-.filter-item input, .filter-item select {
+.filter-item input, .filter-item select, .sort-option select {
     padding: 10px;
     border: 1px solid var(--color-border);
     background-color: var(--color-white);
     border-radius: 4px;
     font-size: 0.9rem;
+    font-family: inherit;
+    color: var(--color-dark);
+}
+
+.filter-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-top: 1px solid var(--color-border);
+    padding-top: 10px;
 }
 
 .filter-note {
     font-size: 0.75rem;
     color: var(--color-secondary);
-    border-top: 1px solid var(--color-border);
-    padding-top: 10px;
+    margin: 0;
+}
+
+.btn-small {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-family: inherit;
 }
 
 .results-info {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 15px;
     font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 15px;
+}
+
+.sort-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.sort-option select {
+    padding: 6px 10px;
+}
+
+/* ---------- Cartes des menus ---------- */
+.menu-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
 .menu-card {
@@ -61,15 +115,20 @@
     border: 1px solid var(--color-border);
     border-radius: 6px;
     overflow: hidden;
-    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
 }
 
+/* display:flex écrase l'attribut hidden : on le rétablit pour les filtres */
+.menu-card[hidden] {
+    display: none;
+}
+
 .menu-card-img img {
+    display: block;
     width: 100%;
-    height: 200px;
-    object-fit: contain; /* 'contain' pour ne rien couper */
+    height: 220px;
+    object-fit: cover;
     background-color: var(--color-muted-bg);
 }
 
@@ -78,34 +137,109 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    flex: 1;
+}
+
+.menu-card-content h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.menu-desc {
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+    margin: 0;
 }
 
 .tags {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
 }
 
 .tag {
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    padding: 2px 8px;
+    background-color: var(--color-footer);
+    padding: 3px 8px;
     font-size: 0.75rem;
     border-radius: 4px;
 }
 
-.active-filter-summary {
-    background-color: var(--color-bg);
-    padding: 12px;
-    border: 1px solid var(--color-border);
+.menu-pricing strong {
+    font-size: 0.95rem;
+}
+
+.price-detail {
+    font-size: 0.8rem;
+    color: var(--color-secondary);
+    margin: 4px 0 0 0;
+}
+
+.availability {
     font-size: 0.85rem;
+    margin: 0;
+}
+
+.btn-outline {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 10px 20px;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--radius-btn);
+    color: var(--color-dark);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline:hover {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+}
+
+.menus-empty {
+    border: 1px dashed var(--color-border);
+    border-radius: 6px;
+    padding: 30px;
     text-align: center;
+    margin-bottom: 20px;
+}
+
+.menus-empty p {
+    margin: 0 0 5px 0;
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+}
+
+.menus-empty strong {
+    color: var(--color-dark);
+}
+
+.active-filter-summary {
+    background-color: var(--color-footer);
+    padding: 12px;
+    border-left: 3px solid var(--color-border);
+    font-size: 0.85rem;
     margin-bottom: 30px;
 }
 
 /* ---------- Responsive ---------- */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     .filter-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .filter-grid,
+    .menu-list {
         grid-template-columns: 1fr;
-        width: 100%;
+    }
+
+    .filter-footer,
+    .results-info {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

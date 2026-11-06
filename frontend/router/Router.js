@@ -1,13 +1,35 @@
-import Route from "./route.js";
+import Route from "./Route.js";
 import { allRoutes, websiteName } from "./allRoutes.js";
 
-// Route de secours (404)
+// Routes de secours
 const route404 = new Route("404", "Page introuvable", "/frontend/pages/public/404.html");
+const route403 = new Route("403", "Accès refusé", "/frontend/pages/public/403.html");
 
-// Recherche de la route associée à l'URL (ancre ignorée)
+// Recherche de la route associée à l'URL (ancre ignorée).
+// Une route terminée par « * » accepte toutes les URL qui commencent pareil
+// (ex. « /menu-* » pour les pages de détail des menus).
 const getRouteByUrl = (url) => {
   const cleanUrl = url.split("#")[0];
-  return allRoutes.find((element) => element.url === cleanUrl) || route404;
+  return (
+    allRoutes.find((element) => element.url === cleanUrl) ||
+    allRoutes.find((element) => element.url.endsWith("*") && cleanUrl.startsWith(element.url.slice(0, -1))) ||
+    route404
+  );
+};
+
+// Contrôle d'accès : un visiteur est envoyé vers la connexion,
+// un utilisateur connecté sans le bon rôle voit « Accès refusé ».
+// (Côté front uniquement : le back-end devra aussi vérifier les droits.)
+const checkAccess = (route) => {
+  if (!route.roles || route.roles.length === 0) return route;
+  const role = localStorage.getItem("userRole") || "visitor";
+  if (route.roles.includes(role)) return route;
+  if (role === "visitor") {
+    const redirect = encodeURIComponent(window.location.pathname + window.location.search);
+    window.history.replaceState({}, "", `/signin?redirect=${redirect}`);
+    return getRouteByUrl("/signin");
+  }
+  return route403;
 };
 
 // Défilement vers une ancre
@@ -21,7 +43,7 @@ const scrollToHash = (hash) => {
 
 // Chargement du contenu de la page
 const LoadContentPage = async (targetHash = null) => {
-  const actualRoute = getRouteByUrl(window.location.pathname);
+  const actualRoute = checkAccess(getRouteByUrl(window.location.pathname));
   const mainPageContainer = document.getElementById("main-page");
 
   // On vérifie la réponse : on n'injecte jamais autre chose qu'une vraie page
@@ -82,7 +104,25 @@ const loadHeader = async () => {
   try {
     const response = await fetch(headerPath);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    document.getElementById("header-container").innerHTML = await response.text();
+    const container = document.getElementById("header-container");
+    container.innerHTML = await response.text();
+
+    // Nom et rôle de la personne connectée
+    const user = window.VG?.session.user();
+    if (user) {
+      container.querySelectorAll("[data-user-name]").forEach((el) => (el.textContent = user.firstName));
+      container.querySelectorAll("[data-user-role]").forEach((el) => (el.textContent = window.VG.ROLE_LABELS[user.role]));
+    }
+
+    // Lien de la page en cours
+    const path = window.location.pathname;
+    container.querySelectorAll(".nav-links a, .staff-nav a").forEach((a) => {
+      const href = a.getAttribute("href");
+      const current = !href.includes("#") && !a.hasAttribute("data-logout") &&
+        (href === path || (a.dataset.activeFor || "").split(" ").includes(path));
+      a.classList.toggle("active", current);
+      if (current) a.setAttribute("aria-current", "page");
+    });
   } catch (error) {
     console.error("Erreur de chargement du header", error);
   }
@@ -96,6 +136,15 @@ const navigate = (href) => {
   loadHeader();
 };
 
+// Navigation depuis les scripts de page (ex. après connexion)
+window.navigateTo = navigate;
+
+// Déconnexion : on oublie la session pour réafficher le header public
+const logout = () => {
+  if (window.VG) window.VG.session.logout();
+  else localStorage.removeItem("userRole");
+};
+
 // Boutons Précédent / Suivant
 window.onpopstate = () => {
   LoadContentPage(window.location.hash || null);
@@ -105,6 +154,7 @@ window.onpopstate = () => {
 // Compatibilité si certains liens utilisent encore onclick="route(event)"
 window.route = (event) => {
   event.preventDefault();
+  if (event.currentTarget.hasAttribute("data-logout")) logout();
   navigate(event.currentTarget.getAttribute("href"));
 };
 
@@ -137,6 +187,7 @@ document.addEventListener("click", (e) => {
     // Route SPA interne
     if (href.startsWith("/") && !href.startsWith("//")) {
       e.preventDefault();
+      if (link.hasAttribute("data-logout")) logout();
       navigate(href);
       return;
     }
