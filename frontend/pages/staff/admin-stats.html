@@ -1,0 +1,63 @@
+<div id="page-admin-stats" class="home-container">
+    <p class="breadcrumb">Mon espace / Statistiques</p>
+
+    <section class="page-head">
+        <h2>Statistiques par menu</h2>
+        <p class="subtitle-desc">Comparer les commandes terminées et le chiffre d'affaires des menus sur une même période.</p>
+    </section>
+
+    <section class="card">
+        <h3>Filtres · période et menus</h3>
+        <form id="stats-form" novalidate>
+            <div class="grid-3">
+                <div class="form-group">
+                    <label for="st-menu">Menu</label>
+                    <select id="st-menu"><option value="">Tous les menus</option></select>
+                </div>
+                <div class="form-group">
+                    <label for="st-from">Début de période *</label>
+                    <input type="date" id="st-from" />
+                </div>
+                <div class="form-group">
+                    <label for="st-to">Fin de période *</label>
+                    <input type="date" id="st-to" />
+                </div>
+            </div>
+            <div class="notice danger" id="stats-error" role="alert" hidden></div>
+            <div class="btn-row">
+                <button type="submit" class="btn-primary">Appliquer les filtres</button>
+                <button type="button" class="btn-secondary" id="stats-reset">Réinitialiser</button>
+            </div>
+        </form>
+        <p style="margin-top:12px"><span class="badge" id="stats-active"></span></p>
+        <p class="small muted">Même périmètre pour les indicateurs, le graphique et le tableau : commandes terminées dont la prestation a lieu entre les deux dates incluses.</p>
+    </section>
+
+    <div class="grid-3">
+        <section class="card kpi"><h3>Commandes terminées</h3><p class="kpi-value" id="kpi-count"></p><p class="small muted" id="kpi-count-sub"></p></section>
+        <section class="card kpi"><h3>CA menus net de remise</h3><p class="kpi-value" id="kpi-ca"></p><p class="small muted">Hors livraison et pénalités</p></section>
+        <section class="card kpi"><h3>Menus comparés</h3><p class="kpi-value" id="kpi-menus"></p><p class="small muted" id="kpi-period"></p></section>
+    </div>
+
+    <section class="card" style="margin-top:20px">
+        <h3>Nombre de commandes terminées par menu</h3>
+        <ul class="bar-chart" id="stats-chart"></ul>
+        <p class="small muted" id="stats-chart-text"></p>
+    </section>
+
+    <section class="card">
+        <h3>Données détaillées et CA par menu</h3>
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead><tr><th>Menu</th><th>Commandes terminées</th><th>CA net menu</th></tr></thead>
+                <tbody id="stats-table"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="card">
+        <h3>Règles de calcul</h3>
+        <p><strong>CA menu = somme des montants de menu des commandes terminées, après remise.</strong></p>
+        <p>Livraison et pénalités exclues ; commandes annulées exclues, ainsi que les commandes non terminées. Le compteur représente un nombre de commandes, pas de convives.</p>
+    </section>
+</div>

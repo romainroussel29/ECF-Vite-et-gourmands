@@ -12,21 +12,23 @@
             <h3>Se connecter</h3>
             <p class="auth-note">Les deux champs sont obligatoires. Votre adresse mail est votre identifiant.</p>
             
-            <form id="signin-form">
+            <div class="notice danger" id="signin-error" role="alert" hidden></div>
+
+            <form id="signin-form" novalidate>
                 <div class="form-group">
-                    <label>Adresse mail *</label>
-                    <input type="email" id="email-input" placeholder="vous@exemple.fr" required />
+                    <label for="email-input">Adresse mail *</label>
+                    <input type="email" id="email-input" placeholder="vous@exemple.fr" autocomplete="email" required />
                 </div>
 
                 <div class="form-group">
-                    <label>Mot de passe *</label>
+                    <label for="password-input">Mot de passe *</label>
                     <div class="password-wrapper">
-                        <input type="password" id="password-input" placeholder="Saisir votre mot de passe" required />
+                        <input type="password" id="password-input" placeholder="Saisir votre mot de passe" autocomplete="current-password" required />
                         <span id="toggle-password" class="toggle-pwd">Afficher</span>
                     </div>
                 </div>
 
-                <a href="/mot-de-passe-oublie" class="forgot-link">Mot de passe oublié ?</a>
+                <a href="/forgot-password" class="forgot-link">Mot de passe oublié ?</a>
 
                 <button type="submit" class="btn-primary btn-submit">Se connecter</button>
             </form>

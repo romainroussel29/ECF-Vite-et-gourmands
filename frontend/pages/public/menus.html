@@ -1,110 +1,87 @@
 <div id="page-menus" class="home-container">
     <p class="breadcrumb">Accueil / Nos menus</p>
-    
+
     <section class="menus-header">
         <h2>Tous nos menus</h2>
         <p class="subtitle-desc">Pour un repas d'équipe, une réception ou une fête familiale : trouvez le menu adapté à vos convives.</p>
     </section>
 
     <!-- SECTION DES FILTRES -->
-    <section class="filters-section">
-        <div class="filter-grid">
+    <section class="filters-section" aria-label="Filtres des menus">
+        <form id="menu-filters" class="filter-grid">
             <div class="filter-item">
-                <label>Rechercher</label>
-                <input type="text" placeholder="Jardin végétal..." />
+                <label for="filter-search">Rechercher</label>
+                <input type="search" id="filter-search" placeholder="Jardin végétal..." />
             </div>
             <div class="filter-item">
-                <label>Thème</label>
-                <select>
-                    <option>Pâques</option>
-                    <option>Classique</option>
-                    <option>Événement</option>
+                <label for="filter-theme">Thème</label>
+                <select id="filter-theme">
+                    <option value="">Tous les thèmes</option>
+                    <option value="Classique">Classique</option>
+                    <option value="Noël">Noël</option>
+                    <option value="Pâques">Pâques</option>
+                    <option value="Événement">Événement</option>
                 </select>
             </div>
             <div class="filter-item">
-                <label>Régime</label>
-                <select>
-                    <option>Vegan</option>
-                    <option>Végétarien</option>
-                    <option>Classique</option>
+                <label for="filter-diet">Régime</label>
+                <select id="filter-diet">
+                    <option value="">Tous les régimes</option>
+                    <option value="Classique">Classique</option>
+                    <option value="Végétarien">Végétarien</option>
+                    <option value="Vegan">Vegan</option>
                 </select>
             </div>
             <div class="filter-item">
-                <label>Prix maximum</label>
-                <input type="text" value="300 € TTC" />
+                <label for="filter-price-max">Prix maximum (€ TTC)</label>
+                <input type="number" id="filter-price-max" min="0" step="10" placeholder="Ex : 300" />
             </div>
             <div class="filter-item">
-                <label>Fourchette de prix</label>
-                <input type="text" value="200 € TTC — 300 € TTC" />
-            </div>
-            <div class="filter-item">
-                <label>Nombre de personnes minimum</label>
-                <select>
-                    <option>8 personnes</option>
+                <label for="filter-price-range">Fourchette de prix</label>
+                <select id="filter-price-range">
+                    <option value="">Toutes les fourchettes</option>
+                    <option value="0-300">Moins de 300 € TTC</option>
+                    <option value="300-500">De 300 à 500 € TTC</option>
+                    <option value="500-">Plus de 500 € TTC</option>
                 </select>
             </div>
+            <div class="filter-item">
+                <label for="filter-guests">Nombre de personnes minimum</label>
+                <input type="number" id="filter-guests" min="1" step="1" placeholder="Ex : 10" />
+            </div>
+        </form>
+        <div class="filter-footer">
+            <p class="filter-note">
+                Les filtres s'actualisent automatiquement après chaque modification, sans rechargement de page.
+                « Nombre de personnes » : affiche les menus dont le minimum requis est inférieur ou égal à votre nombre de convives.
+            </p>
+            <button type="button" id="filter-reset" class="btn-secondary btn-small">Réinitialiser</button>
         </div>
-        <p class="filter-note">
-            Les filtres s'actualisent automatiquement après chaque modification.<br>
-            État statique : les menus ci-dessous correspondent aux filtres renseignés sans rechargement de page.
-        </p>
     </section>
 
     <div class="results-info">
-        <span>1 menu correspondant aux filtres</span>
-        <span class="sort-option">Tri : pertinence &darr;</span>
+        <span id="results-count"></span>
+        <label class="sort-option">
+            Tri :
+            <select id="filter-sort">
+                <option value="default">Pertinence</option>
+                <option value="price-asc">Prix croissant</option>
+                <option value="price-desc">Prix décroissant</option>
+                <option value="guests-asc">Minimum de personnes</option>
+            </select>
+        </label>
     </div>
 
-    <!-- CARTE DU MENU -->
-    <section class="menu-list">
-        <article class="menu-card">
-            <div class="menu-card-img">
-                <img src="/frontend/images/jardin_vegetal.jpg" alt="Jardin végétal">
-            </div>
-            <div class="menu-card-content">
-                <div class="tags">
-                    <span class="tag">Pâques</span>
-                    <span class="tag">Vegan</span>
-                </div>
-                <h3>Jardin végétal</h3>
-                <p class="menu-desc">Des légumes printaniers, des céréales et des desserts fruités pour une table entièrement végétale.</p>
-                
-                <div class="menu-pricing">
-                    <strong>8 personnes minimum - 256 € TTC</strong>
-                    <p class="price-detail">Prix total pour 8 personnes, soit 32 €/pers.</p>
-                </div>
-                
-                <p class="availability">3 commandes encore disponibles</p>
-                
-                <a href="/menu-detail" onclick="route(event)" class="btn-outline">Voir le détail &rarr;</a>
-            </div>
-        </article>
-        <!-- DEUXIÈME CARTE DE MENU : Table de saison -->
-    <article class="menu-card">
-        <div class="menu-card-img">
-            <img src="/frontend/images/table_saison.jpg" alt="Table de saison">
-        </div>
-        <div class="menu-card-content">
-            <div class="tags">
-                <span class="tag">Classique</span>
-                <span class="tag">Événement</span>
-            </div>
-            <h3>Table de saison</h3>
-            <p class="menu-desc">Un assortiment raffiné de plats aux saveurs de saison, idéaux pour vos repas de groupe.</p>
-            
-            <div class="menu-pricing">
-                <strong>6 personnes minimum - 210 € TTC</strong>
-                <p class="price-detail">Prix total pour 6 personnes, soit 35 €/pers.</p>
-            </div>
-            
-            <p class="availability">5 commandes encore disponibles</p>
-            
-            <a href="/menu-detail" class="btn-outline">Voir le détail &rarr;</a>
-        </div>
-    </article>
-    </section>
+    <!-- LISTE DES MENUS (générée par menus.js à partir du catalogue) -->
+    <section class="menu-list" id="menu-list" aria-live="polite"></section>
 
-    <p class="active-filter-summary">1 résultat : Pâques - Vegan - total TTC de 200 à 300 € - minimum requis inférieur ou égal à 8 personnes.</p>
+    <!-- AUCUN RÉSULTAT -->
+    <div id="menus-empty" class="menus-empty" hidden>
+        <p><strong>Aucun menu ne correspond à vos filtres.</strong></p>
+        <p>Essayez d'élargir la fourchette de prix ou de changer de thème.</p>
+    </div>
+
+    <p class="active-filter-summary" id="filter-summary">Aucun filtre actif : tous les menus sont affichés.</p>
 
     <!-- BANNIÈRE CONTACT INTERMÉDIAIRE -->
     <section class="cta-banner">

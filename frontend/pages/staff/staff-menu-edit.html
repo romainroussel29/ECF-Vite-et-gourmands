@@ -1,0 +1,112 @@
+<div id="page-staff-menu-edit" class="home-container">
+    <p class="breadcrumb">Mon espace / Gestion du catalogue et des horaires</p>
+
+    <section class="page-head page-head-row">
+        <div>
+            <h2>Gestion du catalogue</h2>
+            <p class="subtitle-desc">Créer, modifier et publier les menus.</p>
+        </div>
+        <a href="/staff-menu-edit" class="btn-primary">+ Nouveau menu</a>
+    </section>
+
+    <div class="layout-sidebar">
+        <aside class="card">
+            <h3>Catalogue</h3>
+            <p class="small muted" id="me-count"></p>
+            <div class="form-group">
+                <label for="me-search">Rechercher un menu</label>
+                <input type="search" id="me-search" placeholder="Titre du menu" />
+            </div>
+            <div id="me-list"></div>
+        </aside>
+
+        <div>
+            <h3 class="card-title" id="me-title"></h3>
+            <p class="small muted">Les champs marqués * sont obligatoires. Les plats partagés sont signalés dans la fiche menu.</p>
+            <div id="me-flash"></div>
+
+            <form id="menu-form" novalidate>
+                <section class="card">
+                    <h3>Présentation et classification</h3>
+                    <div class="form-group"><label for="me-name">Titre du menu *</label><input type="text" id="me-name" maxlength="80" /></div>
+                    <div class="form-group"><label for="me-desc">Description / présentation *</label><textarea id="me-desc" rows="3" maxlength="400"></textarea></div>
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="me-theme">Thème *</label>
+                            <input type="text" id="me-theme" list="me-themes" />
+                            <datalist id="me-themes"><option value="Classique"><option value="Noël"><option value="Pâques"><option value="Événement"></datalist>
+                            <span class="field-hint">Noël · Pâques · Classique · Événement, ou un nouveau thème.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="me-diet">Régime *</label>
+                            <select id="me-diet"><option>Classique</option><option>Végétarien</option><option>Vegan</option><option>Sans gluten</option></select>
+                        </div>
+                    </div>
+                    <div class="form-group"><label for="me-other">Autre régime (facultatif)</label><input type="text" id="me-other" placeholder="Ex : sans lactose" /></div>
+                </section>
+
+                <section class="card">
+                    <h3>Galerie d'images *</h3>
+                    <p class="small muted" id="me-gallery-info"></p>
+                    <div id="me-gallery"></div>
+                    <div class="range-row">
+                        <div class="form-group">
+                            <label for="me-add-image">Ajouter une image</label>
+                            <select id="me-add-image"></select>
+                        </div>
+                        <div class="form-group"><button type="button" class="btn-secondary" id="me-add-image-btn">+ Ajouter</button></div>
+                    </div>
+                    <p class="small muted">Images issues de la photothèque du site. L'image de couverture est la première de la liste.</p>
+                </section>
+
+                <section class="card">
+                    <h3>Plats associés et allergènes *</h3>
+                    <p>Sélectionnez des plats de la bibliothèque commune. Un même plat peut appartenir à plusieurs menus. Les fiches se modifient depuis <a href="/staff-catalogue" class="inline-link">la bibliothèque de plats</a>.</p>
+                    <div class="form-group">
+                        <label for="me-dish-search">Rechercher un plat existant</label>
+                        <input type="search" id="me-dish-search" placeholder="Nom du plat ou catégorie" />
+                    </div>
+                    <p><strong id="me-dish-count"></strong></p>
+                    <div class="grid-3" id="me-dishes"></div>
+                </section>
+
+                <section class="card">
+                    <h3>Quantité, tarif et disponibilité</h3>
+                    <div class="form-grid-2">
+                        <div class="form-group"><label for="me-min">Nombre minimum de personnes *</label><input type="number" id="me-min" min="1" step="1" /><span class="field-hint">Nombre entier, supérieur ou égal à 1.</span></div>
+                        <div class="form-group"><label for="me-price">Prix total TTC pour ce minimum (€) *</label><input type="number" id="me-price" min="1" step="0.01" /><span class="field-hint">Total pour le minimum, pas un prix par personne.</span></div>
+                    </div>
+                    <p><strong id="me-price-recap"></strong></p>
+                    <div class="form-grid-2">
+                        <div class="form-group"><label for="me-stock">Stock disponible · commandes restantes *</label><input type="number" id="me-stock" min="0" step="1" /><span class="field-hint">Ce stock compte les commandes de ce menu, pas les personnes.</span></div>
+                        <div class="form-group"><label for="me-delay">Délai minimum avant la prestation (jours) *</label><input type="number" id="me-delay" min="0" step="1" /></div>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h3>Conditions du menu *</h3>
+                    <div class="form-group"><label for="me-storage">Précautions de stockage *</label><textarea id="me-storage" rows="2"></textarea></div>
+                    <div class="form-group"><label for="me-conditions">Autres conditions</label><textarea id="me-conditions" rows="2"></textarea></div>
+                </section>
+
+                <section class="card">
+                    <h3>Publication</h3>
+                    <div class="form-group">
+                        <label for="me-status">État du menu *</label>
+                        <select id="me-status"><option value="brouillon">Brouillon</option><option value="publie">Publié</option><option value="archive">Archivé</option></select>
+                    </div>
+                    <label class="check-line"><input type="checkbox" id="me-visible" /> Afficher ce menu dans le catalogue public</label>
+                    <div class="notice"><p>Un menu est visible publiquement s'il est « Publié » et que la case est cochée. Vérifiez avant publication les champs obligatoires, les allergènes, les montants et le stock.</p></div>
+                </section>
+
+                <div class="notice danger" id="me-error" role="alert" hidden></div>
+                <div class="btn-row">
+                    <button type="submit" class="btn-primary">Enregistrer les modifications</button>
+                    <a href="/staff-catalogue" class="btn-secondary">Annuler</a>
+                    <a href="#" class="btn-secondary" id="me-public" hidden>Voir la fiche publique &#8599;</a>
+                </div>
+                <p class="small muted">Chaque enregistrement est daté et rattaché à son auteur.</p>
+            </form>
+        </div>
+    </div>
+</div>

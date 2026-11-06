@@ -1,0 +1,143 @@
+<div id="page-order" class="home-container order-container">
+    <p class="breadcrumb">Accueil / Mon compte / Passer une commande</p>
+
+    <section class="auth-header">
+        <h2>Espace de commande</h2>
+        <p class="subtitle-desc">Retrouvez votre menu sélectionné et préparez les détails de votre prestation.</p>
+    </section>
+
+    <div id="order-form-block">
+        <!-- CONDITIONS DU MENU -->
+        <section class="order-conditions" id="order-conditions"></section>
+
+        <div class="notice danger" id="order-error" role="alert" hidden></div>
+
+        <form id="order-form" novalidate>
+            <!-- ÉTAPE 1 -->
+            <section class="order-step">
+                <h3>Étape 1 · Coordonnées et prestation</h3>
+                <p class="order-small">Les informations du compte sont préremplies. Adresse du compte et lieu de prestation peuvent être différents.</p>
+
+                <h4 class="order-sub-title">Coordonnées personnelles</h4>
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="o-lastname">Nom *</label>
+                        <input type="text" id="o-lastname" autocomplete="family-name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="o-firstname">Prénom *</label>
+                        <input type="text" id="o-firstname" autocomplete="given-name" required />
+                    </div>
+                </div>
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="o-phone">GSM *</label>
+                        <input type="tel" id="o-phone" autocomplete="tel" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="o-email">Adresse mail *</label>
+                        <input type="email" id="o-email" readonly />
+                        <span class="field-hint">Identifiant du compte, non modifiable ici.</span>
+                    </div>
+                </div>
+
+                <h4 class="order-sub-title">Lieu de prestation</h4>
+                <label class="check-line"><input type="checkbox" id="o-same-address" /> Utiliser l'adresse de mon compte</label>
+                <div class="form-group">
+                    <label for="o-street">Adresse de livraison — rue et numéro *</label>
+                    <input type="text" id="o-street" autocomplete="address-line1" required />
+                </div>
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="o-zip">Code postal *</label>
+                        <input type="text" id="o-zip" inputmode="numeric" pattern="[0-9]{5}" autocomplete="postal-code" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="o-city">Ville *</label>
+                        <input type="text" id="o-city" autocomplete="address-level2" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="o-extra">Complément d'adresse (facultatif)</label>
+                    <input type="text" id="o-extra" autocomplete="address-line2" />
+                </div>
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="o-date">Date de prestation *</label>
+                        <input type="date" id="o-date" required />
+                        <span class="field-hint" id="o-date-hint"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="o-time">Heure souhaitée *</label>
+                        <input type="time" id="o-time" value="12:30" required />
+                        <span class="field-hint">Créneau souhaité, confirmé par l'équipe.</span>
+                    </div>
+                </div>
+
+                <div class="order-info-box">
+                    <span class="order-info-title">Livraison</span>
+                    <span id="o-delivery-info"></span>
+                </div>
+            </section>
+
+            <!-- ÉTAPE 2 -->
+            <section class="order-step">
+                <h3>Étape 2 · Menu choisi et nombre de personnes</h3>
+
+                <div class="form-group">
+                    <label for="o-menu">Menu sélectionné *</label>
+                    <select id="o-menu" required></select>
+                    <span class="field-hint" id="o-menu-hint"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="o-guests">Nombre de convives *</label>
+                    <input type="number" id="o-guests" min="1" step="1" required />
+                    <span class="field-hint" id="o-guests-hint"></span>
+                </div>
+
+                <h4 class="order-sub-title">Vos plats au choix</h4>
+                <p class="order-text">Choisissez une entrée, un plat et un dessert. Toutes les combinaisons proposées sont incluses dans le tarif du menu.</p>
+                <div id="o-dishes"></div>
+
+                <div class="order-info-box">
+                    <span class="order-info-title">Allergènes</span>
+                    En cas d'allergie, contactez l'équipe pour vérifier la composition et les éventuelles traces avant toute demande.
+                </div>
+                <div class="order-info-box">
+                    <span class="order-info-title">Remise</span>
+                    <span id="o-discount-info"></span>
+                </div>
+            </section>
+
+            <!-- ÉTAPE 3 -->
+            <section class="order-step">
+                <h3>Étape 3 · Récapitulatif et validation</h3>
+                <p class="order-small">Le calcul se met à jour automatiquement.</p>
+
+                <div class="order-summary">
+                    <h3>Récapitulatif</h3>
+                    <dl class="summary-list" id="o-recap"></dl>
+                    <div id="o-prices"></div>
+                </div>
+
+                <button type="submit" class="btn-primary btn-submit order-submit">Valider ma commande</button>
+            </section>
+        </form>
+    </div>
+
+    <!-- CONFIRMATION -->
+    <div class="order-summary order-confirmation" id="order-confirmation" hidden tabindex="-1">
+        <h3>Commande enregistrée</h3>
+        <p class="order-text">Merci, votre commande a bien été enregistrée. Un mail de confirmation vous a été envoyé. Vous pouvez la modifier ou l'annuler tant qu'elle n'a pas été acceptée par l'équipe.</p>
+        <dl class="summary-list">
+            <div><dt>Numéro de commande</dt><dd><strong id="oc-id"></strong></dd></div>
+            <div><dt>Statut</dt><dd><strong>En attente</strong></dd></div>
+            <div><dt>Total TTC</dt><dd><strong id="oc-total"></strong></dd></div>
+        </dl>
+        <div class="btn-row">
+            <a href="/account" class="btn-primary" id="oc-detail">Voir ma commande</a>
+            <a href="/menus" class="btn-secondary">Retour aux menus</a>
+        </div>
+    </div>
+</div>
