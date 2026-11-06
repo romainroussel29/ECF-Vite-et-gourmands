@@ -14,7 +14,7 @@
     id: `m${Date.now()}`, slug: "", name: "", theme: "Classique", diet: "Classique", otherDiet: "", desc: "",
     price: 0, min: 10, stock: 5, delay: 7, status: "brouillon", visible: false, order: VG.data.menus.length + 1,
     storage: "Conserver entre 0 et +4 °C et consommer dans les 24 heures suivant la livraison. Ne pas rompre la chaîne du froid.",
-    conditions: "Demande à confirmer selon le stock disponible. Modalités de prestation et d'annulation : voir les CGV.",
+    conditions: "Commande confirmée par l'équipe selon le stock disponible. Modalités de prestation et d'annulation : voir les CGV.",
     images: [], dishes: [],
   };
 

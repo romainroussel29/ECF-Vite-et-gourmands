@@ -8,8 +8,8 @@ Projet réalisé dans le cadre de l'ECF du **Titre Professionnel Développeur We
 
 | Ressource | Lien |
 |---|---|
-| Application déployée | À compléter |
-| Dépôt GitHub | À compléter |
+| Application déployée | Pas encore déployée : lancement en local (voir « Installation et lancement en local ») |
+| Dépôt GitHub | [github.com/romainroussel29/ECF-Vite-et-gourmands](https://github.com/romainroussel29/ECF-Vite-et-gourmands) |
 | Gestion de projet (Kanban) | À compléter |
 | Charte graphique et maquettes | À compléter |
 | Documentation technique | À compléter |
@@ -70,23 +70,23 @@ Projet réalisé dans le cadre de l'ECF du **Titre Professionnel Développeur We
 - **Architecture** : application monopage (SPA) avec un routeur JavaScript maison (`History API`), header et pages chargés dynamiquement par `fetch`
 - **Données côté front** : en attendant le back-end, menus, plats, commandes, avis, horaires et comptes sont enregistrés dans le `localStorage` du navigateur (`frontend/scripts/store.js`)
 - **Serveur de développement** : PHP (serveur intégré)
-- **Back-end** : À compléter
-- **Base de données** : À compléter
+- **Back-end** : en cours de développement. En attendant, les données sont gérées dans le navigateur par `frontend/scripts/store.js`
+- **Base de données** : en cours de développement (base relationnelle pour l'application, base NoSQL pour les statistiques)
 - **Outils** : Git / GitHub, Visual Studio Code, Figma
 
 ## Prérequis
 
 - [Git](https://git-scm.com/)
 - [PHP](https://www.php.net/) 8.0 ou supérieur
-- À compléter (serveur de base de données, Composer...)
+- Aucun autre prérequis pour la version actuelle : le back-end et sa base de données ajouteront les leurs
 
 ## Installation et lancement en local
 
 1. Cloner le dépôt :
 
 ```bash
-git clone https://github.com/<compte>/<depot>.git
-cd <depot>
+git clone https://github.com/romainroussel29/ECF-Vite-et-gourmands.git
+cd ECF-Vite-et-gourmands
 ```
 
 2. Lancer le serveur depuis la **racine du projet** :
@@ -103,7 +103,7 @@ php -S localhost:3000 router.php
 
 Pour arrêter le serveur : `Ctrl + C` dans le terminal.
 
-4. Configuration de la base de données : À compléter (création de la base, import du script SQL, fichier `.env` à partir de `.env.example`).
+4. Aucune base de données à configurer pour la version actuelle : les menus, commandes, avis et comptes de départ sont créés automatiquement dans le navigateur au premier chargement (voir « Comptes de test »).
 
 ## Comptes de test
 
@@ -192,7 +192,7 @@ new Route("/ma-page", "Titre de la page", "/frontend/pages/public/ma-page.html",
 
 ## Déploiement
 
-À compléter (hébergeur, procédure de mise en ligne, variables d'environnement).
+Le site n'est pas encore déployé. Il fonctionne en local avec le serveur intégré de PHP (voir « Installation et lancement en local »). La mise en ligne est prévue une fois le back-end terminé.
 
 ## Gestion de projet et Git
 
@@ -203,4 +203,4 @@ Exemple : `feat(auth): add sign-in and sign-up pages`
 
 ## Auteur
 
-**À compléter** : Développeur Web et Web Mobile, Studi, 2026
+**Romain Roussel** : Développeur Web et Web Mobile, Studi, 2026
