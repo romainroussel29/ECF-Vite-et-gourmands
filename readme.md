@@ -10,10 +10,10 @@ Projet réalisé dans le cadre de l'ECF du **Titre Professionnel Développeur We
 |---|---|
 | Application déployée | Pas encore déployée : lancement en local (voir « Installation et lancement en local ») |
 | Dépôt GitHub | [github.com/romainroussel29/ECF-Vite-et-gourmands](https://github.com/romainroussel29/ECF-Vite-et-gourmands) |
-| Gestion de projet (Kanban) | À compléter |
-| Charte graphique et maquettes | À compléter |
-| Documentation technique | À compléter |
-| Manuel d'utilisation | À compléter |
+| Gestion de projet (Kanban) | https://github.com/users/romainroussel29/projects/1/views/1 |
+| Charte graphique et maquettes | https://www.figma.com/design/s2llQKCWL1qJg8LJRm3mGO/Vite---Gourmand?node-id=70-10873&t=9nvsaZ584ek3FK5x-1 |
+| Documentation technique | En cours de rédaction : sera ajoutée une fois le back-end terminé |
+| Manuel d'utilisation | En cours de rédaction : sera ajouté une fois le site déployé |
 
 ## Fonctionnalités
 
