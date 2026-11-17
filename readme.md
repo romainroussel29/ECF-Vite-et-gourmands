@@ -58,28 +58,53 @@ Projet réalisé dans le cadre de l'ECF du **Titre Professionnel Développeur We
 - **JavaScript** (vanilla) : routeur fait maison pour naviguer sans recharger la page
 - **localStorage** : pour stocker les données en attendant le back-end
 - **PHP** : seulement pour lancer le serveur en local
+- **Docker** : environnement de travail identique sur toutes les machines
 - **Outils** : Git, GitHub, Visual Studio Code, Figma
 
 Le back-end et la base de données seront ajoutés plus tard dans la formation.
 
 ## 🚀 Lancer le projet en local
 
-**Prérequis** : [Git](https://git-scm.com/) et [PHP](https://www.php.net/) 8.0 ou plus.
-
-1. Cloner le dépôt :
+Commencer par cloner le dépôt :
 
 ```bash
 git clone https://github.com/romainroussel29/ECF-Vite-et-gourmands.git
 cd ECF-Vite-et-gourmands
 ```
 
-2. Lancer le serveur depuis la racine du projet :
+### Avec Docker (recommandé)
+
+**Prérequis** : [Docker Desktop](https://www.docker.com/products/docker-desktop/), lancé avant de taper les commandes.
+
+1. Construire et démarrer le conteneur depuis la racine du projet :
+
+```bash
+docker compose up --build
+```
+
+2. Ouvrir [http://localhost:3000/](http://localhost:3000/) dans le navigateur.
+
+Pour arrêter : `Ctrl + C`, puis `docker compose down`.
+
+Le dossier du projet est partagé avec le conteneur : les modifications du code sont visibles directement en rechargeant la page, sans reconstruire l'image.
+
+| Fichier | Rôle |
+|---|---|
+| `Dockerfile` | Crée l'image à partir de PHP 8.3 et lance le serveur avec `router.php` |
+| `docker-compose.yml` | Démarre le conteneur, ouvre le port 3000 et partage le dossier du projet |
+| `.dockerignore` | Exclut les fichiers inutiles de l'image |
+
+### Sans Docker
+
+**Prérequis** : [Git](https://git-scm.com/) et [PHP](https://www.php.net/) 8.0 ou plus.
+
+1. Lancer le serveur depuis la racine du projet :
 
 ```bash
 php -S localhost:3000 router.php
 ```
 
-3. Ouvrir [http://localhost:3000/](http://localhost:3000/) dans le navigateur.
+2. Ouvrir [http://localhost:3000/](http://localhost:3000/) dans le navigateur.
 
 Pour arrêter le serveur : `Ctrl + C` dans le terminal.
 
@@ -103,6 +128,8 @@ Pour tout remettre à zéro : taper `localStorage.clear()` dans la console du na
 ```
 .
 ├── router.php          # Serveur PHP local : renvoie toujours vers index.html
+├── Dockerfile          # Image Docker du projet (PHP 8.3)
+├── docker-compose.yml  # Lancement du conteneur avec Docker
 ├── vercel.json         # Configuration pour le futur déploiement
 └── frontend/
     ├── index.html      # Page principale (header, contenu, footer)
